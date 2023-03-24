@@ -37,9 +37,6 @@ export default {
     carouselSlide,
     Header
 
-
-
-
   },
   data() {
     return {
