@@ -1,22 +1,8 @@
 
-
 <template>
 
-    <div class="content">
-
-
-
-        <carousel class="carousel" :items-to-show="1">
-          <slide v-for="page in slides" :key="page">
-           <carousel-slide v-bind:page="page"></carousel-slide>
-          </slide>
-
-          <template #addons>
-            <navigation />
-            <pagination />
-          </template>
-        </carousel>
-
+  <div class="content">
+    x
 
   </div>
 
@@ -24,22 +10,16 @@
 
 <script lang="js">
 import 'vue3-carousel/dist/carousel.css'
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
-import carouselSlide from "@/components/carouselSlide.vue"
 
-
+import Header from "@/components/Header.vue";
 
 
 
 export default {
 
   components: {
-    Carousel,
-    Slide,
-    Pagination,
-    Navigation,
-    carouselSlide,
 
+    Header
 
   },
   data() {
@@ -107,7 +87,6 @@ export default {
 </script>
 
 <style scoped>
-
 
 
 

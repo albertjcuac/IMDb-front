@@ -1,13 +1,13 @@
 <template>
-  <article class="character">
-    <img class="character__image" v-bind:alt="'character image of'+character.name" v-bind:src="character.image">
-    <div class="description"> {{ character.name }}
-      <div v-bind:class="['status',character.status.toLowerCase()]">{{ character.status }}</div>
+  <article class="movie">
+    <img class="movie__image" v-bind:alt="'movie image of'+movie.name" v-bind:src="movie.image">
+    <div class="description"> {{ movie.name }}
+      <div v-bind:class="['status',movie.status.toLowerCase()]">{{ movie.status }}</div>
     </div>
     <div class="info" :class="{ 'show': showInfo }">
-      <p>Gender:{{ character.gender }}</p>
-      <p>Specie:{{ character.species }}</p>
-      <p>Origin:{{ character.origin.name }}</p>
+      <p>Gender:{{ movie.gender }}</p>
+      <p>Specie:{{ movie.species }}</p>
+      <p>Origin:{{ movie.origin.name }}</p>
 
     </div>
   </article>
@@ -15,8 +15,8 @@
 
 <script>
 export default {
-  name: "CharacterCard",
-  props: ["character"],
+  name: "movieCard",
+  props: ["movie"],
   data() {
     return {
 
@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style scoped>
-.character {
+.movie {
   position: relative;
   display: flex;
   flex-flow: column;
@@ -42,7 +42,7 @@ export default {
 
 
 
-.character:hover {
+.movie:hover {
   transform: rotateY(180deg);
 }
 
@@ -55,7 +55,7 @@ export default {
   padding: 1rem;
 }
 
-.character__image {
+.movie__image {
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
 }

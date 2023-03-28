@@ -3,7 +3,7 @@ import {createRouter, createWebHistory} from "vue-router";
 
 
 import app from "@/MainPage.vue";
-import app2 from "@/App2.vue";
+import app2 from "@/prueba1.vue";
 
 const routes = [
     {

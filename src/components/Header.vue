@@ -12,17 +12,27 @@
 
       </router-link>
 
+    <SearchWithSelect
+        :items="[
+        'Taxi Driver',
+        'Amanece Que No Es Poco',
+        'West Side story',
+        'The Breakfast Club',
+        'Clerks II'
+      ]"
+    />
 
 
-    <searchInput></searchInput>
   </header>
 </template>
 
 <script>
 import searchInput from "@/components/SearchInput.vue";
+import SearchWithSelect from "@/components/SearchWithSelect.vue";
 export default {
   name: "Header",
   components:{
+    SearchWithSelect,
     searchInput
   }
 }

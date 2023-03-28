@@ -12,7 +12,7 @@
        custom
        v-slot="{ navigate }"
    >
-   <a @click="navigate" role="link" class="button4" style="background-color:#9a4ef1">Lets begin!</a>
+   <a @click="navigate" role="link" class="button">Lets begin!</a>
    </router-link>
  </div>
 
@@ -29,7 +29,8 @@ export default {
 </script>
 
 <style scoped>
-a.button4{
+a.button{
+  background-color:#9a4ef1;
   display:inline-block;
   padding:0.3em 1.2em;
   margin:0 0.1em 0.1em 0;
@@ -44,7 +45,7 @@ a.button4{
   text-align:center;
   transition: all 0.2s;
 }
-a.button4:hover{
+a.button:hover{
   color: rgba(0,0,0,1);
 }
 
@@ -94,7 +95,7 @@ a.button4:hover{
     justify-content: space-around;
     align-items: center;
   }
-  a.button4{
+  a.button{
     display:block;
 
     margin-bottom: 2rem;
