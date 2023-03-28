@@ -5,11 +5,12 @@
     <Header></Header>
 
     <div class="box content">
-      <main>
+
       <RouterView></RouterView>
 
-      </main>
+
     </div>
+
 
     <div class="footer">
       <footer>
@@ -38,12 +39,18 @@ export default {
 </script>
 
 <style scoped>
+body{
+  background-color: #10062E;
+}
 .wrapper {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: auto 1fr auto 1fr auto;
-  height: 100vh;
-  background-color: #10062E;
+  min-height: 100vh;
+  height: auto;
+
+
+
 }
 
 .box {
@@ -62,12 +69,28 @@ export default {
 .content {
   grid-column: 1/6;
   grid-row: 2/5;
+
+
 }
 
 .footer {
+  display: flex;
   grid-column: 1/6;
   grid-row: 5/6;
-  text-align: center;
+  justify-content: center;
+
 
 }
+@media only screen and (max-width: 767px) {
+  .footer p{
+    color: #f8f8f8;
+    font-size: 80%;
+  }
+
+
+
+}
+
+
+
 </style>

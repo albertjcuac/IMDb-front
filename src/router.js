@@ -4,7 +4,7 @@ import {createRouter, createWebHistory} from "vue-router";
 
 import app from "@/MainPage.vue";
 import app2 from "@/prueba1.vue";
-
+import similar from "@/Similar.vue";
 const routes = [
     {
         path: '/',
@@ -15,7 +15,10 @@ const routes = [
         path: '/country',
         component: app2
     },
-
+    {
+        path: '/similar',
+        component: similar
+    },
 ]
 
 export const router = createRouter({

@@ -2,7 +2,7 @@
 
 <template>
 
-    <div class="content">
+
 
 
 
@@ -13,12 +13,16 @@
 
           <template #addons>
             <navigation />
-            <pagination />
+
           </template>
         </carousel>
 
+        <BaseGrid>
+          <transition-group name="fade" appear>
+            <MovieCard v-for="movie in visibleMovies " v-bind:movie="movie">  </MovieCard>
+          </transition-group>
+        </BaseGrid>
 
-  </div>
 
 </template>
 
@@ -26,7 +30,8 @@
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 import carouselSlide from "@/components/carouselSlide.vue"
-
+import MovieCard from "@/components/MovieCard.vue";
+import BaseGrid from "@/components/BaseGrid.vue";
 
 
 
@@ -39,12 +44,13 @@ export default {
     Pagination,
     Navigation,
     carouselSlide,
+    MovieCard,
+    BaseGrid
 
 
   },
   data() {
     return {
-      apiUrl:'https://rickandmortyapi.com/api/character/',
       slides:[ {
         "label":"map",
         "route":"/country",
@@ -66,7 +72,7 @@ export default {
           "text": "Most rated movies by the comunity!!",
           "img": "https://media.istockphoto.com/id/1268205934/vector/rating-customer-review-and-feedback-concept-a-group-of-cartoon-people-holding-five-stars.jpg?s=170667a&w=0&k=20&c=Qd--e444iblMEDN2tCKYKHfgYFrdHUFZXpl3DlHg4YY=",
         }],
-
+      visibleMovies:[]
     };
   },
   watch: {
@@ -107,7 +113,6 @@ export default {
 </script>
 
 <style scoped>
-
 
 
 

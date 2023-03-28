@@ -51,7 +51,7 @@ a.button:hover{
 
 .carousel__item {
   width: 100%;
-  height: 20rem;
+  height: 18rem;
   background-color: white;
   color: black;
   border-radius: 10px;
@@ -86,14 +86,16 @@ a.button:hover{
 
   .carousel__item {
     width: 100%;
-    height: 20rem;
+    height: 18rem;
     background-color: white;
     color: black;
+
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+
   }
   a.button{
     display:block;
@@ -110,9 +112,9 @@ a.button:hover{
   }
   .card__image {
     width: 70%; /* Anchura específica para la imagen */
-    max-width: 20rem; /* Anchura máxima para la imagen */
+    max-width: 18rem; /* Anchura máxima para la imagen */
     height: auto;
-    padding-bottom: 2rem;
+    padding-bottom: 0;
   }
   .text{
     font-size: 1rem;

@@ -100,6 +100,7 @@ export default {
   max-height: 4rem;
   overflow: auto;
   background-color: #1F2D50;
+  z-index: 9999;
 
 
 }
