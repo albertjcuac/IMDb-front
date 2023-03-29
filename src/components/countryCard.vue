@@ -4,15 +4,21 @@
       href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"
   />
   <article class="country">
-    <div class="country__image-container">
+
+
+
+    <router-link v-bind:to="'/country/'+country.iso+'/'+country.name" tag="div" class="country__image-container" >
+
         <span v-bind:class="'fi fi-'+country.iso+'  flag country__flag'" ></span>
-    </div>
+
+    </router-link>
     <div class="description">
       <h1>{{ country.name }}</h1>
       <p>{{ country.number }} movies</p>
     </div>
 
   </article>
+
 </template>
 
 <script>
@@ -37,8 +43,7 @@ export default {
   border: 1px solid black;
   background-color: whitesmoke;
   border-radius: 20px;
-  transition: transform 0.5s ease;
-  transform-style: preserve-3d;
+
 }
 
 
@@ -55,6 +60,7 @@ export default {
 .description h1, .description p{
 
   line-height: 0;
+
 
 }
 .description h1{
