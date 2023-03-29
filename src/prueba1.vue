@@ -32,110 +32,110 @@ export default {
       visibleMovies:[{
         "name": "Clerks",
         "image": "https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/206a5d19370f319b25158a5e33addbe9b3bed0b0122e993b7ba27786b0ac0498._V_SX600_.jpg",
-        "status":"alive",
+        "year":"2001",
 
       },
         {
           "name": "Clerks",
           "image": "https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/206a5d19370f319b25158a5e33addbe9b3bed0b0122e993b7ba27786b0ac0498._V_SX600_.jpg",
-          "status":"alive",
+          "year":"2001",
 
         },
         {
           "name": "Clerks",
           "image": "https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/206a5d19370f319b25158a5e33addbe9b3bed0b0122e993b7ba27786b0ac0498._V_SX600_.jpg",
-          "status":"alive",
+          "year":"2001",
 
         },
         {
           "name": "Clerks",
           "image": "https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/206a5d19370f319b25158a5e33addbe9b3bed0b0122e993b7ba27786b0ac0498._V_SX600_.jpg",
-          "status":"alive",
+          "year":"2001",
 
         },
         {
           "name": "Clerks",
           "image": "https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/206a5d19370f319b25158a5e33addbe9b3bed0b0122e993b7ba27786b0ac0498._V_SX600_.jpg",
-          "status":"alive",
+          "year":"2001",
 
         },
 
         {
           "name": "Clerks",
           "image": "https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/206a5d19370f319b25158a5e33addbe9b3bed0b0122e993b7ba27786b0ac0498._V_SX600_.jpg",
-          "status":"alive",
+          "year":"2001",
 
         },
         {
           "name": "Clerks",
           "image": "https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/206a5d19370f319b25158a5e33addbe9b3bed0b0122e993b7ba27786b0ac0498._V_SX600_.jpg",
-          "status":"alive",
+          "year":"2001",
 
         },
         {
           "name": "Clerks",
           "image": "https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/206a5d19370f319b25158a5e33addbe9b3bed0b0122e993b7ba27786b0ac0498._V_SX600_.jpg",
-          "status":"alive",
+          "year":"2001",
 
         },
         { "name": "Ali G In Da House",
           "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "status":"dead",
+          "year":"2002",
 
         },
         { "name": "Ali G In Da House",
           "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "status":"dead",
+          "year":"2002",
 
         },
         { "name": "Ali G In Da House",
           "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "status":"dead",
+          "year":"2002",
 
         },
         { "name": "Ali G In Da House",
           "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "status":"dead",
+          "year":"2002",
 
         },
         { "name": "Ali G In Da House",
           "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "status":"dead",
+          "year":"2002",
 
         },
         { "name": "Ali G In Da House",
           "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "status":"dead",
+          "year":"2002",
 
         },
         { "name": "Ali G In Da House",
           "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "status":"dead",
+          "year":"2002",
 
         },
         { "name": "Ali G In Da House",
           "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "status":"dead",
+          "year":"2002",
 
         },
         { "name": "Ali G In Da House",
           "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "status":"dead",
+          "year":"2002",
 
         },
         { "name": "Ali G In Da House",
           "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "status":"dead",
+          "year":"2002",
 
         },
         { "name": "Ali G In Da House",
           "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "status":"dead",
+          "year":"2002",
 
         },
         { "name": "Ali G In Da House",
           "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "status":"dead",
+          "year":"2002",
 
         },
 

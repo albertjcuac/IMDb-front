@@ -4,13 +4,14 @@
 
       <img class="movie__image" v-bind:alt="'movie image of'+movie.name" v-bind:src="movie.image">
     </div>
-    <div class="description"> {{ movie.name }}
-      <div v-bind:class="['status',movie.status.toLowerCase()]">{{ movie.status }}</div>
+    <div class="description">
+        <h1>{{ movie.name }}</h1>
+        <p>{{ movie.year }}, nombredirector</p>
     </div>
     <div class="info" :class="{ 'show': showInfo }">
-      <p>Gender:</p>
-      <p>Specie:</p>
-      <p>Origin:</p>
+      <p>113min</p>
+      <button class="label" disabled="true">comedy</button>
+      <p>Ali G unwittingly becomes a pawn in the Chancellor's plot to overthrow the Prime Minister of Great Britain. However, Ali is embraced by the nation as a voice of the youth, making the PM and his government more popular than ever.</p>
 
     </div>
   </article>
@@ -45,17 +46,25 @@ export default {
 
 
 
-.movie:hover {
+ .movie:hover {
   transform: rotateY(180deg);
 }
 
 .description {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100%;
-  padding: 1rem;
+  justify-content: center;
+
+
+}
+.description h1, .description p{
+
+  line-height: 0;
+
+}
+.description h1{
+  margin-bottom: 0.8rem;
 }
 
 .movie__image-container {
@@ -72,25 +81,14 @@ export default {
 }
 
 
-.status {
-  padding: 5px;
-  color: white;
+.label{
+  border-color: #e7e7e5;
+  color: black;
 }
 
-.alive {
-  background: green;
-}
-
-.dead {
-  background: red;
-}
-
-.unknown {
-  background: gray;
-}
 
 .info {
-  border-radius: 50px;
+  border-radius: 20px;
 
   position: absolute;
   top: 0;

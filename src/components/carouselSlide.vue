@@ -101,7 +101,6 @@ a.button:hover{
   }
   a.button{
     display:block;
-
     margin-bottom: 2rem;
 
     }
