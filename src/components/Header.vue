@@ -21,7 +21,7 @@
         'Clerks II'
       ]"
     />
-
+  <filter-dropdown v-bind:categories="categories"></filter-dropdown>
 
   </header>
 </template>
@@ -29,11 +29,35 @@
 <script>
 import searchInput from "@/components/SearchInput.vue";
 import SearchWithSelect from "@/components/SearchWithSelect.vue";
+import FilterDropdown from "@/components/FilterDropdown.vue";
 export default {
   name: "Header",
   components:{
+    FilterDropdown,
     SearchWithSelect,
     searchInput
+  },
+  data(){
+    return{
+      categories:[{
+        "name":"Genre",
+        "options":["comedy","drama","action","fantasy"]
+
+
+
+      },
+        {
+          "name":"Duration",
+          "options":["under 1h","1h-2h","over 2h"]
+
+        },
+        {
+          "name":"Language",
+          "options":["spanish","english","french","italian","german"]
+
+        }]
+    }
+
   }
 }
 </script>
@@ -76,6 +100,7 @@ export default {
   line-height: 1.2em;
   color:white ;
 }
+
 @media only screen and (max-width: 767px) {
 
   .header {

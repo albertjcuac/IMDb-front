@@ -86,6 +86,7 @@ export default {
   border: 0.1em solid #c7c7c7;
   align-self: center;
 
+
 }
 
 .autocomplete-results {
@@ -93,11 +94,11 @@ export default {
   padding: 1em 0.5rem;
   margin-top: 0.5rem;
   margin-left: 0.5rem;
-  border: 1px solid #9a4ef1;
+  border: 3px solid #9a4ef1;
   border-radius: 10px;
   width: 20rem;
   height: auto;
-  max-height: 4rem;
+  max-height: 5.5rem;
   overflow: auto;
   background-color: #1F2D50;
   z-index: 9999;

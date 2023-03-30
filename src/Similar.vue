@@ -6,7 +6,7 @@
 
 
 
-  <carousel class="carousel" :items-to-show="1">
+  <carousel class="carousel" :items-to-show="1" :touchDrag="false">
     <slide v-for="page in slides" :key="page">
       <carousel-slide v-bind:page="page"></carousel-slide>
     </slide>

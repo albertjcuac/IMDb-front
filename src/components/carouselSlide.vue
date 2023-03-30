@@ -11,9 +11,9 @@
    <router-link
        :to="page.route"
        custom
-       v-slot="{ navigate }"
+       v-slot="{ href, navigate }"
    >
-   <a @click="navigate" role="link" class="button">Lets begin!</a>
+   <a :href="href" @click="navigate" role="link" class="button">Lets begin!</a>
    </router-link>
  </div>
 
@@ -24,12 +24,11 @@
 
 export default {
   name: "carouselSlide",
-  props: ["page"],
-
+  props: ["page"]
 }
 </script>
 
-<style scoped>
+<style>
 a.button{
   background-color:#9a4ef1;
   display:inline-block;
@@ -72,13 +71,11 @@ a.button:hover{
   display: flex;
   flex-flow: column;
   align-items: center;
-
-
-
-
-
-
 }
+.carousel__icon{
+  transform: scale(2)!important;
+}
+
 .text{
   font-size: 1.2rem;
 }
@@ -122,6 +119,9 @@ a.button:hover{
   }
   .title{
     font-size: 1.2rem;
+  }
+  .carousel__icon{
+    transform: scale(3)!important;
   }
 }
 
