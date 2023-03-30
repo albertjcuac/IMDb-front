@@ -1,4 +1,5 @@
 <template>
+
   <body>
   <div class="wrapper">
 
@@ -39,8 +40,10 @@ export default {
 </script>
 
 <style scoped>
+
 body{
   background-color: #10062E;
+  margin: 0;
 }
 .wrapper {
   display: grid;
@@ -63,6 +66,7 @@ body{
 
 .footer p{
   color: #f8f8f8;
+
 }
 
 
@@ -84,7 +88,7 @@ body{
 @media only screen and (max-width: 767px) {
   .footer p{
     color: #f8f8f8;
-    font-size: 80%;
+    font-size: 60%;
   }
 
 
