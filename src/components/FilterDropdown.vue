@@ -51,9 +51,11 @@ export default {
   color: white;
   padding: 8px 16px;
   border: none;
-  border-radius: 4px;
+
   cursor: pointer;
   margin-top: 1.4rem;
+  height:2.3rem;
+  margin-bottom: 1.4rem;
 
 
 }

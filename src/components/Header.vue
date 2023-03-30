@@ -11,17 +11,20 @@
 
 
       </router-link>
-
-    <SearchWithSelect
-        :items="[
+<div class="search-experience">
+  <SearchWithSelect
+      :items="[
         'Taxi Driver',
         'Amanece Que No Es Poco',
         'West Side story',
         'The Breakfast Club',
         'Clerks II'
       ]"
-    />
+  />
   <filter-dropdown v-bind:categories="categories"></filter-dropdown>
+
+</div>
+
 
   </header>
 </template>
@@ -63,6 +66,10 @@ export default {
 </script>
 
 <style scoped>
+
+.search-experience{
+  display: flex;
+}
 .logo{
 
   display: flex;
@@ -102,6 +109,9 @@ export default {
 }
 
 @media only screen and (max-width: 767px) {
+  .search-experience{
+    display: block;
+  }
 
   .header {
     grid-column: 1/6;
