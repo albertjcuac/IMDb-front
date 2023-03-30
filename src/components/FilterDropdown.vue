@@ -1,4 +1,5 @@
 <template>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <div class="filter-dropdown">
     <button @click="toggleFilter" class="filter-button">
       <i class="fa fa-filter"></i> Filters
@@ -16,6 +17,8 @@
 </template>
 
 <script>
+
+
 export default {
   props: {
     categories: {
@@ -110,6 +113,7 @@ export default {
   .filter-item {
     display: block;
     margin-top: 0.5rem;
+    margin-left: 0.5rem;
   }
 
   .filter-item span {

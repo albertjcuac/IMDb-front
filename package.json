@@ -12,6 +12,7 @@
   "dependencies": {
     "@coreui/vue": "^4.7.0",
     "flag-icons": "^6.6.6",
+    "oh-vue-icons": "^1.0.0-rc3",
     "vue": "^3.2.47",
     "vue-burger-menu": "^2.0.5",
     "vue-carousel": "^0.18.0",
