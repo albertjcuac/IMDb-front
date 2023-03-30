@@ -1,6 +1,6 @@
 <template>
 
-  <body>
+
   <div class="wrapper">
 
     <Header></Header>
@@ -19,7 +19,7 @@
       </footer>
     </div>
   </div>
-  </body>
+
 
 </template>
 
@@ -41,20 +41,16 @@ export default {
 
 <style scoped>
 
-body{
-  background-color: #10062E;
-  margin: 0;
-}
+
+
 .wrapper {
+  background-color: #10062E;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: auto 1fr auto 1fr auto;
-  min-height: 100vh;
-  height: auto;
-
-
-
+  min-height: 100vh
 }
+
 
 .box {
   display: flex;
