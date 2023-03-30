@@ -7,7 +7,7 @@
 
 
 
-    <router-link v-bind:to="'/country/'+country.iso+'/'+country.name" tag="div" class="country__image-container" >
+    <router-link v-bind:to="'/country/'+country.iso.toUpperCase()+'/'+country.name" tag="div" class="country__image-container" >
 
         <span v-bind:class="'fi fi-'+country.iso+'  flag country__flag'" ></span>
 
