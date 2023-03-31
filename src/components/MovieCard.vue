@@ -93,14 +93,14 @@ export default {
 
 
 .label{
-  border-color: #e7e7e5;
-  color: black;
+
+  background-color: #9a4ef1;
+  color: white;
 }
 
 
 .info {
   border-radius: 20px;
-
   position: absolute;
   top: 0;
   left: 0;
@@ -110,13 +110,13 @@ export default {
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   padding: 1rem;
   box-sizing: border-box;
   transition: transform 0.5s ease;
   transform-style: preserve-3d;
-  background-color: whitesmoke;
+  background-color:#202020;
 }
 
 .info p {

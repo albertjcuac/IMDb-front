@@ -20,8 +20,9 @@ export default {
   components: {CountryCard,BaseGrid},
   data(){
     return{
+      //ISO VIENE EN MAYUSCULA DE API, PASAR A LOWERCASE ANTES DE MANDAR A COMPONENTE
       countries: [{
-        "iso": "br ",
+        "iso": "br",
         "name": "Brazil",
         "number":"2354",
 

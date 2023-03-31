@@ -4,9 +4,12 @@
            @click="onChange"
             type="text"
     />
+
     <ul v-show="isOpen"
         class="autocomplete-results"
     >
+      <li>    <h5 class="autocomplete-title" v-show="isOpen">Recent searches</h5> <hr></li>
+
       <li
           v-for="(result, i) in results"
           :key="i"
@@ -71,6 +74,8 @@ export default {
 </script>
 
 <style scoped>
+
+
 .autocomplete {
 
  align-self: center;
@@ -94,18 +99,24 @@ export default {
 
 .autocomplete-results {
   position: absolute;
-  padding: 1em 0.5rem;
-  margin-top: 0.5rem;
-  margin-left: 0.5rem;
+  padding: 0.5rem 0.5rem;
+  margin-top: 0;
   border-radius: 4px;
-  width: 20rem;
+  width: 21rem;
   height: auto;
-  max-height: 5.5rem;
+  max-height: 8rem;
   overflow: auto;
   background-color: #202020;
   z-index: 9999;
 
 
+}
+.autocomplete-title {
+  font-weight: bold;
+  margin: 0;
+  padding: 0.5em;
+
+  color: white;
 }
 
 .autocomplete-result {
@@ -136,7 +147,7 @@ export default {
 
   .autocomplete-results {
     position: absolute;
-    padding: 1em 0.5rem;
+    padding: 0.5em 0.5rem;
     margin: 0.5rem;
     width: 10rem;
     height: auto;
