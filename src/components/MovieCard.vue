@@ -1,4 +1,5 @@
 <template>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <article class="movie">
     <div class="movie__image-container">
 
@@ -6,11 +7,18 @@
     </div>
     <div class="description">
         <h1>{{ movie.name }}</h1>
-        <p>{{ movie.year }}, nombredirector</p>
+        <p>{{ movie.year }}, {{movie.director}}</p>
+      <div class="rating">
+        <i class="fa fa-star" style="color: #fcff42;"></i>
+        <span>5.4</span>
+      </div>
     </div>
     <div class="info" :class="{ 'show': showInfo }">
-      <p>113min</p>
-      <button class="label" disabled="true">comedy</button>
+      <div class="info2">
+        <p>113min</p>
+        <button class="label" disabled="true">comedy</button>
+      </div>
+
       <p>Ali G unwittingly becomes a pawn in the Chancellor's plot to overthrow the Prime Minister of Great Britain. However, Ali is embraced by the nation as a voice of the youth, making the PM and his government more popular than ever.</p>
 
     </div>
@@ -35,9 +43,9 @@ export default {
   display: flex;
   flex-flow: column;
   width: 13rem;
-  height: 18rem;
-  border: 1px solid black;
-  background-color: whitesmoke;
+  height: 21rem;
+  background-color:#202020;
+  color:white;
   border-radius: 20px;
   transition: transform 0.5s ease;
   transform-style: preserve-3d;
@@ -57,6 +65,7 @@ export default {
   justify-content: center;
 
 
+
 }
 .description h1, .description p{
 
@@ -68,11 +77,13 @@ export default {
 }
 
 .movie__image-container {
-  height:100rem;
+  height: 14rem; /* ajusta el tamaño a tu preferencia */
   overflow: hidden;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  margin: 1rem; /* agrega un margen alrededor de la imagen */
 }
+
 
 .movie__image {
   height: 100%;
@@ -111,8 +122,31 @@ export default {
 .info p {
   margin: 0.5rem 0;
 }
+.info2{
+  display: flex;
+  justify-content: space-between;
+  width: 10rem;
+}
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+
+
+}
+
+.rating i {
+  margin-right: 0.5rem;
+}
+
+.rating span {
+  font-weight: bold;
+}
 
 .show {
   transform: rotateY(0deg);
 }
+
 </style>

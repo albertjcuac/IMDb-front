@@ -44,11 +44,15 @@ export default {
 
 
 .wrapper {
-  background-color: #10062E;
+  /*background-color: #10062E;
+
+   */
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: auto 1fr auto 1fr auto;
-  min-height: 100vh
+  min-height: 100vh;
+  background-color: black;
+
 }
 
 
@@ -56,7 +60,7 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  justify-content: center;
+ margin-top: 1.5rem;
 }
 
 
@@ -70,6 +74,7 @@ export default {
   grid-column: 1/6;
   grid-row: 2/5;
 
+  margin: 0;
 
 }
 
@@ -79,9 +84,11 @@ export default {
   grid-row: 5/6;
   justify-content: center;
 
+  margin: 0;
 
 }
 @media only screen and (max-width: 767px) {
+
   .footer p{
     color: #f8f8f8;
     font-size: 60%;

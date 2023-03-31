@@ -12,6 +12,7 @@
 
       </router-link>
 <div class="search-experience">
+  <filter-dropdown v-bind:categories="categories"></filter-dropdown>
   <SearchWithSelect
       :items="[
         'Taxi Driver',
@@ -21,7 +22,7 @@
         'Clerks II'
       ]"
   />
-  <filter-dropdown v-bind:categories="categories"></filter-dropdown>
+
 
 </div>
 
@@ -97,8 +98,10 @@ export default {
   grid-row: 1/2;
   display: flex;
   justify-content: space-around;
-  background-color: #1F2D50;
-  flex-wrap: wrap
+  background-color:	#202020;
+  flex-wrap: wrap;
+  width: 100vw;
+  margin: 0px;
 
 }
 .logo__title h4, .logo__title h2 {
@@ -110,7 +113,8 @@ export default {
 
 @media only screen and (max-width: 767px) {
   .search-experience{
-    display: block;
+    display: flex;
+    flex-direction: column-reverse;
   }
 
   .header {
@@ -120,9 +124,8 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #1F2D50;
     padding-bottom: 1rem;
-
+    background-color:	#101010;
 
   }
   .logo {

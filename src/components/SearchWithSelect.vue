@@ -1,7 +1,7 @@
 <template>
   <div class="autocomplete">
     <input  class="search" placeholder="Search for a movie" v-model="search"
-           @input="onChange"
+           @click="onChange"
             type="text"
     />
     <ul v-show="isOpen"
@@ -80,10 +80,10 @@ export default {
 .search {
   width: 20rem;
   height: 0.1rem;
-  border-bottom-left-radius: 30px;
-  border-top-left-radius:30px ;
-  border-bottom-right-radius: 0;
-  border-top-right-radius:0 ;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius:30px;
   font-size: 1rem;
   padding: 1em 1em;
   border: 0.1em solid #c7c7c7;
@@ -97,13 +97,12 @@ export default {
   padding: 1em 0.5rem;
   margin-top: 0.5rem;
   margin-left: 0.5rem;
-  border: 3px solid #9a4ef1;
-  border-radius: 10px;
+  border-radius: 4px;
   width: 20rem;
   height: auto;
   max-height: 5.5rem;
   overflow: auto;
-  background-color: #1F2D50;
+  background-color: #202020;
   z-index: 9999;
 
 
@@ -139,8 +138,6 @@ export default {
     position: absolute;
     padding: 1em 0.5rem;
     margin: 0.5rem;
-    border: 1px solid #9a4ef1;
-    border-radius: 10px;
     width: 10rem;
     height: auto;
     overflow:auto;

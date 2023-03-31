@@ -1,6 +1,6 @@
 <template>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <div class="filter-dropdown">
+  <div class="filter-dropdown" ref="filter">
     <button @click="toggleFilter" class="filter-button">
       <i class="fa fa-filter"></i> Filters
     </button>
@@ -31,7 +31,19 @@ export default {
       showFilter: false,
     };
   },
+  mounted() {
+    document.addEventListener('click', this.handleOutsideClick);
+  },
+  beforeDestroy() {
+    document.removeEventListener('click', this.handleOutsideClick);
+  },
   methods: {
+
+    handleOutsideClick(event) {
+      if (!this.$refs.filter.contains(event.target)) {
+        this.showFilter = false;
+      }
+    },
     toggleFilter() {
       this.showFilter = !this.showFilter;
     },
@@ -39,9 +51,12 @@ export default {
       for (let category of this.categories) {
         this.selectedValues[category.name] = null;
       }
+
+
     },
+
   },
-};
+}
 </script>
 
 <style scoped>
@@ -65,12 +80,11 @@ export default {
   position: absolute;
   top: 2.9rem;
   right: auto;
-  background-color: #1F2D50;
+  background-color: #202020;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
   z-index: 1;
   margin-top:1rem;
-  border: 0.1em solid #9a4ef1;
   width: 8rem;
 }
 

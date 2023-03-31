@@ -1,5 +1,6 @@
 <template>
- <h1> {{countryName}}</h1>
+
+ <h1> Showing movies from {{countryName}}</h1>
   <h1> {{countryIso}}</h1>
 </template>
 
@@ -18,5 +19,7 @@ export default {
 <style scoped>
 h1{
   color:white;
+  text-align: center;
+align-self: center;
 }
 </style>
