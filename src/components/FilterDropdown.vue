@@ -6,7 +6,7 @@
     </button>
     <div v-show="showFilter" class="filter">
       <div v-for="(category, index) in categories" :key="index" class="filter-item">
-        <span>{{ category.name }}</span>
+        <span>{{ category.name }}   </span>
         <select v-model="selectedValues[category.name]">
           <option disabled value="">Please select one</option>
           <option v-for="option in category.options" :key="option" :value="option">{{ option }}</option>
@@ -92,6 +92,7 @@ export default {
   display: flex;
   align-items: center;
   margin-right: 0.5rem;
+  justify-content: flex-end;
 }
 
 .filter-item span {
@@ -100,8 +101,8 @@ export default {
 }
 
 .filter-item select {
-  width: 100%;
-  max-width: 200px;
+  width: 3rem;
+
 }
 
 
