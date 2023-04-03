@@ -1,6 +1,6 @@
 <template>
   <div class="dropdown">
-    <button @click="toggleDropdown" class="dropbtn">{{ selectedOption || 'Fav Movies' }}</button>
+    <button @click="toggleDropdown" class="dropbtn">{{ selectedOption || 'Saved Movies' }}</button>
     <div :class="{ 'dropdown-content': true, 'show': isOpen }">
       <input class="search-input" v-model="searchQuery" type="text" placeholder="Search.." id="myInput" />
       <a v-for="option in filteredOptions" :key="option.value" @click="selectOption(option)">
@@ -8,6 +8,11 @@
       </a>
     </div>
   </div>
+  <router-link v-bind:to="'/similar/'+selectedOption">
+
+    <button class="similar-button"> Go</button>
+
+  </router-link>
 </template>
 
 <script>
@@ -110,6 +115,11 @@ export default {
   padding: 14px 20px 12px 45px;
   border: none;
   border-bottom: 1px solid #ddd;
+}
+.similar-button{
+  margin-left: 0.5rem;
+  width: 4rem;
+  height: 3.2rem;
 }
 @media only screen and (max-width: 767px) {
   .search-input {

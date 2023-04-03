@@ -11,7 +11,7 @@
   <div class="selection">
 
     <FavsSelect :options="options" v-model="selectedOption"></FavsSelect>
-    <button> Go</button>
+
 
   </div>
 
