@@ -2,7 +2,18 @@
 
 <template>
 
+  <div class="title">
 
+    <h1> Select one of your saved movies and find a similar one</h1>
+
+
+  </div>
+  <div class="selection">
+
+    <FavsSelect :options="options" v-model="selectedOption"></FavsSelect>
+    <button> Go</button>
+
+  </div>
 
 
 
@@ -15,51 +26,23 @@
 </template>
 
 <script lang="js">
-import 'vue3-carousel/dist/carousel.css'
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
-import carouselSlide from "@/components/carouselSlide.vue"
-import MovieCard from "@/components/MovieCard.vue";
-import BaseGrid from "@/components/BaseGrid.vue";
+
+import FavsSelect from "@/components/FavsSelect.vue";
 
 
 
 
 export default {
 
-  components: {
-    Carousel,
-    Slide,
-    Pagination,
-    Navigation,
-    carouselSlide,
-    MovieCard,
-    BaseGrid
-
-
-  },
+  components: {FavsSelect},
   data() {
     return {
-      slides:[ {
-        "label":"map",
-        "route":"/country",
-        "title": "Films Country Map",
-        "text": "Explore different countries and their filmographies!",
-        "img": "https://static.vecteezy.com/system/resources/previews/015/414/382/non_2x/world-map-isolated-on-white-background-flat-earth-map-template-for-web-site-pattern-anual-report-inphographics-worldmap-icon-travel-worldwide-map-silhouette-vector.jpg",
-
-      }, {
-        "label":"similar",
-        "route":"/similar",
-        "title": "Similar Films",
-        "text": "Find similar movies to your favourite one!!",
-        "img": "https://i.kym-cdn.com/photos/images/original/001/709/826/059.jpg",
-      },
-        {
-          "label":"mostRated",
-          "route":"/most-rated",
-          "title": "Most Rated",
-          "text": "Most rated movies by the comunity!!",
-          "img": "https://media.istockphoto.com/id/1268205934/vector/rating-customer-review-and-feedback-concept-a-group-of-cartoon-people-holding-five-stars.jpg?s=170667a&w=0&k=20&c=Qd--e444iblMEDN2tCKYKHfgYFrdHUFZXpl3DlHg4YY=",
-        }],
+      options: [
+        { label: 'Peli 1', value: 'option1' },
+        { label: 'Another film', value: 'option2' },
+        { label: 'Baby driver', value: 'option3' },
+        { label: 'Grease', value: 'option4' }
+      ],
 
     };
   },
@@ -71,19 +54,6 @@ export default {
   },
   methods: {
 
-    search() {
-
-
-    },
-
-    debouncedSearch(event) {
-      const self = this;
-      clearTimeout(self.searchTimeout);
-
-      self.searchTimeout = setTimeout(() => {
-        self.search(event); // Pasar el evento a la función search
-      }, 400);
-    },
 
 
 
@@ -102,7 +72,39 @@ export default {
 
 <style scoped>
 
+h1{
+  color:white;
+  text-align: center;
+  align-self: center;
+}
+.title{
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+
+}
+.selection{
+  margin-top: 5rem;
+  display: flex;
+ justify-content: center;
+}
 
 
+@media only screen and (max-width: 767px) {
+  .title{
+    margin-top:1rem;
+    display: flex;
+    justify-content: center;
 
+  }
+  h1{
+    color:white;
+    text-align: center;
+    align-self: center;
+    font-size: 1rem;
+  }
+  .selection{
+    margin-top: 2rem;
+  }
+}
 </style>
