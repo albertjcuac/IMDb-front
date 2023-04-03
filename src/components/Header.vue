@@ -1,4 +1,5 @@
 <template>
+
   <header class="header">
     <router-link to="/" tag="div" class="logo">
 
@@ -11,6 +12,7 @@
 
 
       </router-link>
+
 <div class="search-experience">
   <filter-dropdown v-bind:categories="categories"></filter-dropdown>
   <SearchWithSelect
@@ -24,8 +26,9 @@
   />
 
 
-</div>
 
+</div>
+    <img src="@/static/save-instagram.png" class="saved-movies" >
 
   </header>
 </template>
@@ -110,6 +113,11 @@ export default {
   line-height: 1.2em;
   color:white ;
 }
+.saved-movies{
+  height: 2.2rem;
+  align-self: center;
+}
+
 
 @media only screen and (max-width: 767px) {
   .search-experience{
@@ -135,6 +143,10 @@ export default {
     padding-bottom: 1rem;
     padding-top: 1rem;
     align-items: center;
+  }
+  .saved-movies{
+    height: 2rem;
+
   }
 }
 
