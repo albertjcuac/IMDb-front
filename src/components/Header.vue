@@ -28,8 +28,10 @@
 
 
 </div>
-    <img src="@/static/save-instagram.png" class="saved-movies" >
+    <router-link to="/saved">
 
+    <img src="@/static/save-instagram.png" class="saved-movies" >
+    </router-link>
   </header>
 </template>
 
@@ -82,6 +84,7 @@ export default {
   padding-top: 1rem;
   align-items: center;
 
+
 }
 .logo__image {
   width: 2.5rem;
@@ -116,6 +119,7 @@ export default {
 .saved-movies{
   height: 2.2rem;
   align-self: center;
+  margin-top: 1.4rem;
 }
 
 

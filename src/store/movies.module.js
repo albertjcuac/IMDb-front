@@ -1,8 +1,8 @@
-export const charactersModule ={
+export const moviesModule ={
 namespaced:true,
 state: ()=> ({
-    characters: [],
-    visibleCharacters:[],
+    movies: [],
+    visibleMovies:[],
     currentPage : 1,
     totalPages:0,
 
@@ -10,26 +10,26 @@ state: ()=> ({
 
 
 actions:{
-    async fetchAllCharacters({commit,state},url){
+    async fetchAllMovies({commit,state},url){
 
         fetch(url+'&page='+state.currentPage)
             .then(response => response.json())
             .then(data => {
 
                 commit('setTotalPages',data.info.pages);
-                commit('setVisibleCharacters',data.results);
-                commit('setCharacters',data.results);
+                commit('setVisibleMovies',data.results);
+                commit('setMovies',data.results);
 
             });
 
     },
-    async fetchFilteredCharacters({commit,state,rootGetters,},url){
+    async fetchFilteredMovies({commit,state,rootGetters,},url){
 
         fetch(url + `&status=` + rootGetters['search/getSelectedFilter']+'&page='+state.currentPage)
             .then(response => response.json())
             .then(data => {
                 commit('setTotalPages',data.info.pages);
-                commit('setVisibleCharacters',data.results);
+                commit('setVisibleMovies',data.results);
 
             });
 
@@ -48,12 +48,12 @@ actions:{
     },
     },
 mutations:{
-        setCharacters(state, characters){
-            state.characters=characters
+        setMovies(state, Movies){
+            state.Movies=Movies
 
         },
-        setVisibleCharacters(state, visibleChar){
-            state.visibleCharacters = visibleChar
+        setVisibleMovies(state, visibleChar){
+            state.visibleMovies = visibleChar
         },
         setCurrentPage(state, currentPage){
             state.currentPage = currentPage
@@ -64,11 +64,11 @@ mutations:{
     },
 
 getters:{
-        getCharacters(state){
-            return state.characters
+        getMovies(state){
+            return state.Movies
         },
-        getVisibleCharacters(state){
-            return state.visibleCharacters
+        getVisibleMovies(state){
+            return state.visibleMovies
         },
 
         getCurrentPage(state){

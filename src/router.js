@@ -2,12 +2,12 @@ import {createRouter, createWebHistory} from "vue-router";
 
 
 
-import app from "@/MainPage.vue";
-import app2 from "@/prueba1.vue";
-import similar from "@/Similar.vue";
-import countryFlags from "@/CountryFlags.vue";
-import CountryDetails from "@/components/CountryDetails.vue";
-import similarDetails from "@/SimilarDetails.vue";
+import app from "@/pages/MainPage.vue";
+import similar from "@/pages/Similar.vue";
+import countryFlags from "@/pages/CountryFlags.vue";
+import CountryDetails from "@/pages/CountryDetails.vue";
+import similarDetails from "@/pages/SimilarDetails.vue";
+import saved from "@/pages/Saved.vue";
 const routes = [
     {
         path: '/',
@@ -29,7 +29,13 @@ const routes = [
         path: '/similar/:name',
         component: similarDetails
 
+    },
+    {
+        path:'/saved',
+        component: saved
     }
+
+
 ]
 
 export const router = createRouter({
