@@ -1,5 +1,5 @@
 <template>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <article class="movie">
     <div class="movie__image-container">
 
@@ -8,9 +8,11 @@
     <div class="description">
         <h1>{{ movie.name }}</h1>
         <p>{{ movie.year }}, {{movie.director}}</p>
-      <div class="rating">
-        <i class="fa fa-star" style="color: #fcff42;"></i>
-        <span>5.4</span>
+      <div class="misc">
+        <div class="rating">
+          <i class="fa fa-star" style="color: #fcff42;"></i>
+          <span>5.4</span>
+        </div>
       </div>
     </div>
     <div class="info" :class="{ 'show': showInfo }">
@@ -38,6 +40,7 @@ export default {
 </script>
 
 <style scoped>
+
 .movie {
   position: relative;
   display: flex;
@@ -98,7 +101,13 @@ export default {
   color: white;
 }
 
+.misc{
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 
+
+}
 .info {
   border-radius: 20px;
   position: absolute;
@@ -131,8 +140,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+
+
 
 
 }

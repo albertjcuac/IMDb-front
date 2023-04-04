@@ -1,7 +1,7 @@
 <template>
 
   <header class="header">
-    <router-link to="/" tag="div" class="logo">
+    <router-link to="/" tag="div" class="logo" style="text-decoration: none;">
 
       <img class="logo__image" src="@/static/clapperboard-256.png">
       <div class="logo__title">
