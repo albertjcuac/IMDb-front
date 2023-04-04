@@ -6,7 +6,7 @@ export const store=createStore({
 
 modules:{
     search:searchModule,
-    characters:moviesModule
+    movies:moviesModule
 }
 
 

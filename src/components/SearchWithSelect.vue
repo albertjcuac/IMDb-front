@@ -1,44 +1,37 @@
 <template>
   <div class="autocomplete">
-    <input  class="search" placeholder="Search for a movie" v-model="search"
-           @click="onChange"
+    <input  class="search" placeholder="Search for a movie" v-model="searchValue"
+            @click="onChange"
             type="text"
+            @input="handleSearch"
     />
 
-    <ul v-show="isOpen"
-        class="autocomplete-results"
-    >
-      <li>    <h5 class="autocomplete-title" v-show="isOpen">Recent searches</h5> <hr></li>
+    <ul v-show="isOpen" class="autocomplete-results">
+      <li>
+        <h5 class="autocomplete-title" v-show="isOpen">Recent searches</h5>
+        <hr>
+      </li>
 
       <li
-          v-for="(result, i) in results"
+          v-for="(result, i) in recentSearches"
           :key="i"
           @click="setResult(result)"
           class="autocomplete-result"
       >
         {{ result }}
-
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "SearchWithSelect",
-  props: {
-    items: {
-      type: Array,
-      required: false,
-      default: () => [],
-    },
-  },
   data() {
     return {
-      search: '',
-      results: [],
+      searchValue: '',
       isOpen: false,
+      recentSearches: ["Taxi driver", "Amanece que no es poco", "Labyrinth"],
     };
   },
   mounted() {
@@ -48,16 +41,15 @@ export default {
     document.removeEventListener('click', this.handleClickOutside);
   },
   methods: {
-
+    handleSearch(event) {
+      this.$store.commit('search/setQuery', event.target.value)
+    },
     setResult(result) {
-      this.search = result;
+      this.searchValue = result;
+      this.$store.commit('search/setQuery', result)
       this.isOpen = false;
     },
-    filterResults() {
-      this.results = this.items.filter(item => item.toLowerCase().indexOf(this.search.toLowerCase()) > -1);
-    },
     onChange() {
-      this.filterResults();
       this.isOpen = true;
     },
     handleClickOutside(event) {
@@ -67,11 +59,9 @@ export default {
     }
   }
 }
-
-
-
-
 </script>
+
+
 
 <style scoped>
 

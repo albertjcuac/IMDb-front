@@ -1,53 +1,53 @@
 export const moviesModule ={
-namespaced:true,
-state: ()=> ({
-    movies: [],
-    visibleMovies:[],
-    currentPage : 1,
-    totalPages:0,
+    namespaced:true,
+    state: ()=> ({
+        movies: [],
+        visibleMovies:[],
+        currentPage : 1,
+        totalPages:0,
 
-}),
+    }),
 
 
-actions:{
-    async fetchAllMovies({commit,state},url){
+    actions:{
+        async fetchAllMovies({commit,state},url){
 
-        fetch(url+'&page='+state.currentPage)
-            .then(response => response.json())
-            .then(data => {
+            fetch(url+'&page='+state.currentPage)
+                .then(response => response.json())
+                .then(data => {
 
-                commit('setTotalPages',data.info.pages);
-                commit('setVisibleMovies',data.results);
-                commit('setMovies',data.results);
+                    commit('setTotalPages',data.info.pages);
+                    commit('setVisibleMovies',data.results);
+                    commit('setMovies',data.results);
 
-            });
+                });
 
+        },
+        async fetchFilteredMovies({commit,state,rootGetters,},url){
+
+            fetch(url + `&status=` + rootGetters['search/getSelectedFilter']+'&page='+state.currentPage)
+                .then(response => response.json())
+                .then(data => {
+                    commit('setTotalPages',data.info.pages);
+                    commit('setVisibleMovies',data.results);
+
+                });
+
+        },
+        decreasePage({commit,state}){
+            let page=state.currentPage-1;
+            commit('setCurrentPage',page)
+
+        },
+
+        increasePage({commit,state}){
+            let page=state.currentPage+1;
+            commit('setCurrentPage',page)
+
+
+        },
     },
-    async fetchFilteredMovies({commit,state,rootGetters,},url){
-
-        fetch(url + `&status=` + rootGetters['search/getSelectedFilter']+'&page='+state.currentPage)
-            .then(response => response.json())
-            .then(data => {
-                commit('setTotalPages',data.info.pages);
-                commit('setVisibleMovies',data.results);
-
-            });
-
-    },
-    decreasePage({commit,state}){
-        let page=state.currentPage-1;
-        commit('setCurrentPage',page)
-
-    },
-
-    increasePage({commit,state}){
-        let page=state.currentPage+1;
-        commit('setCurrentPage',page)
-
-
-    },
-    },
-mutations:{
+    mutations:{
         setMovies(state, Movies){
             state.Movies=Movies
 
@@ -63,7 +63,7 @@ mutations:{
         },
     },
 
-getters:{
+    getters:{
         getMovies(state){
             return state.Movies
         },

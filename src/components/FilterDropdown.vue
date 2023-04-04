@@ -6,8 +6,8 @@
     </button>
     <div v-show="showFilter" class="filter">
       <div v-for="(category, index) in categories" :key="index" class="filter-item">
-        <span>{{ category.name }}   </span>
-        <select v-model="selectedValues[category.name]">
+        <span>{{ category.name }}</span>
+        <select v-model="selectedValues[category.name]" @change="updateFilters(category.name, selectedValues[category.name])">
           <option disabled value="">Please select one</option>
           <option v-for="option in category.options" :key="option" :value="option">{{ option }}</option>
         </select>
@@ -38,7 +38,6 @@ export default {
     document.removeEventListener('click', this.handleOutsideClick);
   },
   methods: {
-
     handleOutsideClick(event) {
       if (!this.$refs.filter.contains(event.target)) {
         this.showFilter = false;
@@ -49,15 +48,30 @@ export default {
     },
     clearAllFilters() {
       for (let category of this.categories) {
-        this.selectedValues[category.name] = null;
+        this.selectedValues[category.name] = 'all';
+        this.updateFilters(category.name, 'all');
       }
-
-
     },
-
+    updateFilters(categoryName, selectedValue) {
+      this.selectedValues[categoryName] = selectedValue;
+      switch (categoryName) {
+        case 'Genre':
+          this.$store.commit('search/setSelectedGenre', selectedValue);
+          break;
+        case 'Duration':
+          this.$store.commit('search/setSelectedDuration', selectedValue);
+          break;
+        case 'Language':
+          this.$store.commit('search/setSelectedLanguage', selectedValue);
+          break;
+      }
+    }
   },
+
+
 }
 </script>
+
 
 <style scoped>
 .filter-dropdown {
@@ -85,13 +99,13 @@ export default {
   padding: 12px 16px;
   z-index: 1;
   margin-top:1rem;
-  width: 8rem;
+  width: 9rem;
 }
 
 .filter-item {
   display: flex;
   align-items: center;
-  margin-right: 0.5rem;
+  margin-right: 0;
   justify-content: flex-end;
 }
 
@@ -101,7 +115,7 @@ export default {
 }
 
 .filter-item select {
-  width: 3rem;
+  width: 5rem;
 
 }
 

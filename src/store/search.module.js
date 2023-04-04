@@ -1,7 +1,9 @@
 export const searchModule ={
 namespaced:true,
 state:()=>({
-    selectedFilter: 'all',
+    selectedGenre: 'all',
+    selectedDuration: 'all',
+    selectedLanguage:'all',
     query:'',
 
 
@@ -9,8 +11,16 @@ state:()=>({
 }),
 mutations:{
 
-    setSelectedFilter(state, filter){
-        state.selectedFilter=filter
+    setSelectedGenre(state, filter){
+        state.selectedGenre=filter
+
+    },
+    setSelectedDuration(state, filter){
+        state.selectedDuration=filter
+
+    },
+    setSelectedLanguage(state, filter){
+        state.selectedLanguage=filter
 
     },
 
@@ -22,10 +32,15 @@ mutations:{
 },
 
 getters:{
-    getSelectedFilter(state){
-        return state.selectedFilter
+    getSelectedGenre(state){
+        return state.selectedGenre
     },
-
+    getSelectedDuration(state){
+        return state.selectedDuration
+    },
+    getSelectedLanguage(state){
+        return state.selectedLanguage
+    },
     getQuery(state){
         return state.query
     },
