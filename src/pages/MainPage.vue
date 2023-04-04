@@ -15,7 +15,7 @@
 
         <BaseGrid>
           <transition-group name="fade" appear>
-            <MovieCard v-for="movie in visibleMovies " v-bind:movie="movie">  </MovieCard>
+            <MovieCard v-for="movie in movies " v-bind:movie="movie">  </MovieCard>
           </transition-group>
         </BaseGrid>
 
@@ -68,131 +68,6 @@ export default {
           "text": "Most rated movies by the comunity!!",
           "img": "https://media.istockphoto.com/id/1268205934/vector/rating-customer-review-and-feedback-concept-a-group-of-cartoon-people-holding-five-stars.jpg?s=170667a&w=0&k=20&c=Qd--e444iblMEDN2tCKYKHfgYFrdHUFZXpl3DlHg4YY=",
         }],
-      visibleMovies:[{
-        "name": "Clerks",
-        "image": "https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/206a5d19370f319b25158a5e33addbe9b3bed0b0122e993b7ba27786b0ac0498._V_SX600_.jpg",
-        "year":"2001",
-        "director": "Kevin Smith"
-
-      },
-        {
-          "name": "Clerks",
-          "image": "https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/206a5d19370f319b25158a5e33addbe9b3bed0b0122e993b7ba27786b0ac0498._V_SX600_.jpg",
-          "year":"2001",
-          "director": "Kevin Smith"
-
-        },
-        {
-          "name": "Clerks",
-          "image": "https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/206a5d19370f319b25158a5e33addbe9b3bed0b0122e993b7ba27786b0ac0498._V_SX600_.jpg",
-          "year":"2001",
-          "director": "Kevin Smith"
-
-        },
-        {
-          "name": "Clerks",
-          "image": "https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/206a5d19370f319b25158a5e33addbe9b3bed0b0122e993b7ba27786b0ac0498._V_SX600_.jpg",
-          "year":"2001",
-          "director": "Kevin Smith"
-
-        },
-        {
-          "name": "Clerks",
-          "image": "https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/206a5d19370f319b25158a5e33addbe9b3bed0b0122e993b7ba27786b0ac0498._V_SX600_.jpg",
-          "year":"2001",
-          "director": "Kevin Smith"
-
-        },
-        {
-          "name": "Clerks",
-          "image": "https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/206a5d19370f319b25158a5e33addbe9b3bed0b0122e993b7ba27786b0ac0498._V_SX600_.jpg",
-          "year":"2001",
-          "director": "Kevin Smith"
-
-        },
-        {
-          "name": "Clerks",
-          "image": "https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/206a5d19370f319b25158a5e33addbe9b3bed0b0122e993b7ba27786b0ac0498._V_SX600_.jpg",
-          "year":"2001",
-          "director": "Kevin Smith"
-
-        },
-        {
-          "name": "Clerks",
-          "image": "https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/206a5d19370f319b25158a5e33addbe9b3bed0b0122e993b7ba27786b0ac0498._V_SX600_.jpg",
-          "year":"2001",
-          "director": "Kevin Smith"
-
-        },
-        {
-          "name": "Clerks",
-          "image": "https://images-eu.ssl-images-amazon.com/images/S/pv-target-images/206a5d19370f319b25158a5e33addbe9b3bed0b0122e993b7ba27786b0ac0498._V_SX600_.jpg",
-          "year":"2001",
-          "director": "Kevin Smith"
-
-        },
-        { "name": "Ali G In Da House",
-          "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "year":"2002",
-          "director": "Kevin Smith"
-
-
-        },
-        { "name": "Ali G In Da House",
-          "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "year":"2002",
-          "director": "Kevin Smith"
-        },
-        { "name": "Ali G In Da House",
-          "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "year":"2002",
-          "director": "Kevin Smith"
-        },
-        { "name": "Ali G In Da House",
-          "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "year":"2002",
-          "director": "Kevin Smith"
-        },
-        { "name": "Ali G In Da House",
-          "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "year":"2002",
-          "director": "Kevin Smith"
-        },
-        { "name": "Ali G In Da House",
-          "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "year":"2002",
-
-        },
-        { "name": "Ali G In Da House",
-          "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "year":"2002",
-
-        },
-        { "name": "Ali G In Da House",
-          "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "year":"2002",
-
-        },
-        { "name": "Ali G In Da House",
-          "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "year":"2002",
-
-        },
-        { "name": "Ali G In Da House",
-          "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "year":"2002",
-
-        },
-        { "name": "Ali G In Da House",
-          "image": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51DCKRVFYDL._SY445_.jpg",
-          "year":"2002",
-
-        },
-
-
-
-
-      ]
 
     };
   },
@@ -224,7 +99,9 @@ export default {
 
   },
   computed:{
-
+      movies(){
+        return this.$store.getters['movies/getMovies']
+      }
   },
 
 
