@@ -8,6 +8,7 @@ import countryFlags from "@/pages/CountryFlags.vue";
 import CountryDetails from "@/pages/CountryDetails.vue";
 import similarDetails from "@/pages/SimilarDetails.vue";
 import saved from "@/pages/Saved.vue";
+import mostRated from "@/pages/MostRated.vue";
 const routes = [
     {
         path: '/',
@@ -33,6 +34,10 @@ const routes = [
     {
         path:'/saved',
         component: saved
+    },
+    {
+        path:'/most-rated',
+        component: mostRated
     }
 
 

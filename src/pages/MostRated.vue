@@ -1,8 +1,10 @@
 <template>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
   <div class="title">
 
-    <h1> Showing similar movies to "{{movieName}}"</h1>
+    <h1> Most rated movies</h1>
+    <i class="fa fa-star star"></i>
 
 
   </div>
@@ -10,12 +12,7 @@
 
 <script>
 export default {
-  name: "SimilarDetails",
-  data(){
-    return{
-      movieName: this.$route.params.name ,
-    }
-  }
+  name: "MostRated"
 }
 </script>
 
@@ -31,11 +28,20 @@ h1{
   justify-content: center;
 
 }
+.star{
+  color: #fbff00;
+  font-size: 3rem;
+  margin-left: 1rem;
+  align-self: center;
+}
 
 @media only screen and (max-width: 767px) {
   .title {
-    flex-direction: column-reverse;
     font-size: 0.8rem;
+  }
+  .star{
+
+    font-size: 2rem;
   }
 }
 </style>

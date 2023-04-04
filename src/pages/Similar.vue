@@ -38,10 +38,10 @@ export default {
   data() {
     return {
       options: [
-        { label: 'Peli 1', value: 'option1' },
-        { label: 'Another film', value: 'option2' },
+        { label: 'After sunrise', value: 'option1' },
+        { label: 'West side story', value: 'option2' },
         { label: 'Baby driver', value: 'option3' },
-        { label: 'Grease', value: 'option4' }
+        { label: 'Casino', value: 'option4' }
       ],
 
     };
