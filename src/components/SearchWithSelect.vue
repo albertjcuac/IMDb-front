@@ -134,10 +134,10 @@ export default {
 }
 @media only screen and (max-width: 767px) {
   .search {
-    width: 80%;
+    width: 14rem;
     height: 0.1rem;
     border-radius: 30px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     padding: 1em 1em;
     border: 0.1em solid #c7c7c7;
     align-self: center;

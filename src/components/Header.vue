@@ -130,7 +130,6 @@ export default {
     grid-row: 1/2;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding-bottom: 1rem;
     background-color:	#101010;
@@ -143,9 +142,18 @@ export default {
     padding-bottom: 1rem;
     padding-top: 1rem;
     align-items: center;
+    font-size: 0.7rem;
+  }
+  .logo__image {
+    width: 2rem;
+    height: 2rem;
+
   }
   .saved-movies{
-    height: 2rem;
+    position: fixed;
+    height: 1.5rem;
+    right:2rem;
+    top:2rem;
 
   }
 }

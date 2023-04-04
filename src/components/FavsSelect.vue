@@ -71,6 +71,7 @@ export default {
   font-size: 1rem;
   border: none;
   cursor: pointer;
+  min-width: 8rem;
 }
 
 .dropbtn:hover,
@@ -81,6 +82,7 @@ export default {
 .dropdown {
   position: relative;
   display: inline-block;
+
 }
 
 .dropdown-content {
