@@ -1,18 +1,18 @@
 <template>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <div class="filter-dropdown" ref="filter">
-    <button @click="toggleFilter" class="filter-button">
+    <button class="filter-dropdown__button" @click="toggleFilter">
       <i class="fa fa-filter"></i> Filters
     </button>
-    <div v-show="showFilter" class="filter">
-      <div v-for="(category, index) in categories" :key="index" class="filter-item">
-        <span>{{ category.name }}</span>
-        <select v-model="selectedValues[category.name]" @change="updateFilters(category.name, selectedValues[category.name])">
+    <div v-show="showFilter" class="filter-dropdown__filter">
+      <div v-for="(category, index) in categories" :key="index" class="filter-dropdown__filter-item">
+        <span class="filter-dropdown__filter-item-name">{{ category.name }}</span>
+        <select class="filter-dropdown__filter-item-select" v-model="selectedValues[category.name]" @change="updateFilters(category.name, selectedValues[category.name])">
           <option disabled value="">Please select one</option>
           <option v-for="option in category.options" :key="option" :value="option">{{ option }}</option>
         </select>
       </div>
-      <button class="clear-all-button" @click="clearAllFilters">Clear All</button>
+      <button class="filter-dropdown__clear-all-button" @click="clearAllFilters">Clear All</button>
     </div>
   </div>
 </template>
@@ -79,18 +79,18 @@ export default {
   display: inline-block;
 }
 
-.filter-button {
-  background-color:#9a4ef1;
+.filter-dropdown__button {
+  background-color: #9a4ef1;
   color: white;
   padding: 8px 16px;
   border: none;
   cursor: pointer;
   margin-top: 1.4rem;
-  height:2.3rem;
+  height: 2.3rem;
   margin-bottom: 1.4rem;
 }
 
-.filter {
+.filter-dropdown__filter {
   position: absolute;
   top: 2.9rem;
   right: auto;
@@ -98,40 +98,34 @@ export default {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
   z-index: 1;
-  margin-top:1rem;
+  margin-top: 1rem;
   width: 9rem;
 }
 
-.filter-item {
+.filter-dropdown__filter-item {
   display: flex;
   align-items: center;
   margin-right: 0;
   justify-content: flex-end;
 }
 
-.filter-item span {
+.filter-dropdown__filter-item-name {
   margin-right: 0.5rem;
   color: white;
 }
 
-.filter-item select {
+.filter-dropdown__filter-item-select {
   width: 5rem;
-
 }
 
-
-
-
-
-                                                   /* CSS */
-.clear-all-button {
+.filter-dropdown__clear-all-button {
   appearance: none;
-  background-color: #FAFBFC;
+  background-color: #fafbfc;
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
   box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
-  color: #24292E;
+  color: #24292e;
   cursor: pointer;
   display: inline-block;
   font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
@@ -150,103 +144,28 @@ export default {
   word-wrap: break-word;
 }
 
-.clear-all-button:hover {
+.filter-dropdown__clear-all-button:hover {
   background-color: lightgray;
   text-decoration: none;
   transition-duration: 0.1s;
 }
 
-.clear-all-button:disabled {
-  background-color: #FAFBFC;
+.filter-dropdown__clear-all-button:disabled {
+  background-color: #fafbfc;
   border-color: rgba(27, 31, 35, 0.15);
-  color: #959DA5;
+  color: #959da5;
   cursor: default;
 }
 
-.clear-all-button:active {
-  background-color: #EDEFF2;
+.filter-dropdown__clear-all-button:active {
+  background-color: #edeff2;
   box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
   transition: none 0s;
 }
 
-.clear-all-button:focus {
+.filter-dropdown__clear-all-button:focus {
   outline: 1px transparent;
 }
 
-.clear-all-button:before {
-  display: none;
-}
-
-
-@media only screen and (max-width: 767px) {
-
-  .filter-dropdown {
-    width: 100%;
-    display: block;
-  }
-
-  .filter-button {
-    width: 95%;
-    text-align: center;
-  }
-
-  .filter {
-    position: static;
-    background-color: transparent;
-    min-width: auto;
-    box-shadow: none;
-    padding: 0;
-    border: none;
-
-
-  }
-
-  .filter-item {
-    display: block;
-    margin-top: 0.5rem;
-    width: 12.6rem;
-
-  }
-
-  .filter-item span {
-    display: block;
-    margin-bottom: 0.25rem;
-  }
-
-  .filter-item select {
-    max-width: 100%;
-    width: 100%;
-  }
-
-  .filter-item:not(:last-child) {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .filter-item:first-child {
-    margin-top: 0.5rem;
-  }
-
-  .filter-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-    margin-bottom: 0;
-  }
-
-  .filter-item:not(:first-child) select {
-    border-top: none;
-  }
-
-  .filter-item:not(:last-child) select {
-    border-bottom: none;
-  }
-  .clear-all-button {
-    font-size: 13px;
-
-
-
-  }
-}
 
 </style>

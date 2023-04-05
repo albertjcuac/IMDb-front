@@ -12,7 +12,7 @@
         <span v-bind:class="'fi fi-'+country.iso+'  flag country__flag'" ></span>
 
     </router-link>
-    <div class="description">
+    <div class="country__description">
       <h1>{{ country.name }}</h1>
       <p>{{ country.number }} movies</p>
     </div>
@@ -54,7 +54,7 @@ export default {
 }
 
 
-.description {
+.country__description {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,13 +62,13 @@ export default {
 
 
 }
-.description h1, .description p{
+.country__description h1, .country__description p{
 
   line-height: 0;
 
 
 }
-.description h1{
+.country__description h1{
   margin-bottom: 2rem;
 }
 
@@ -78,7 +78,7 @@ export default {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
-
+/* si se esta usando*/
 .country__flag {
   font-size: 10rem;
 

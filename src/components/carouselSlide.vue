@@ -1,19 +1,19 @@
 <template>
-<div class="carousel__item">
-  <div class="card">
-    <h1 class="title">{{page.title}}</h1>
-    <img class="card__image" v-bind:src="page.img" >
+<div class="slide">
+  <div class="slide__card">
+    <h1 class="slide__card__title">{{page.title}}</h1>
+    <img class="slide__card__image" v-bind:src="page.img" >
 
   </div>
 
  <div>
-   <p class="text">{{page.text}}</p>
+   <p class="slide__text">{{page.text}}</p>
    <router-link
        :to="page.route"
        custom
        v-slot="{ href, navigate }"
    >
-   <a :href="href" @click="navigate" role="link" class="button">Lets begin!</a>
+   <a :href="href" @click="navigate" role="link" class="slide__button">Lets begin!</a>
    </router-link>
  </div>
 
@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style>
-a.button{
+a.slide__button{
   background-color:#9a4ef1;
   display:inline-block;
   padding:0.3em 1.2em;
@@ -45,11 +45,11 @@ a.button{
   text-align:center;
   transition: all 0.2s;
 }
-a.button:hover{
+a.slide__button:hover{
   color: rgba(0,0,0,1);
 }
 
-.carousel__item {
+.slide {
   width: 100%;
   height: 18rem;
   background-color: white;
@@ -60,30 +60,31 @@ a.button:hover{
   align-items: center;
 }
 
-.card__image {
+.slide__card__image {
   width:15rem; /* Anchura específica para la imagen */
   max-width: 30rem; /* Anchura máxima para la imagen */
   height: auto;
   padding-bottom: 2rem;
 }
-.card{
+.slide__card{
   position: relative;
   display: flex;
   flex-flow: column;
   align-items: center;
 }
+/* si se esta usando*/
 .carousel__icon{
   transform: scale(2)!important;
 }
 
-.text{
+.slide__text{
   font-size: 1.2rem;
 }
 
 
 @media only screen and (max-width: 767px) {
 
-  .carousel__item {
+  .slide {
     width: 100%;
     height: 18rem;
     background-color: white;
@@ -96,30 +97,31 @@ a.button:hover{
     align-items: center;
 
   }
-  a.button{
+  a.slide__button{
     display:block;
     margin-bottom: 2rem;
 
     }
-  .card {
+  .slide__card {
     position: relative;
     display: flex;
     flex-flow: column;
     width: 15rem;
     height: 22rem;
   }
-  .card__image {
+  .slide__card__image {
     width: 70%; /* Anchura específica para la imagen */
     max-width: 18rem; /* Anchura máxima para la imagen */
     height: auto;
     padding-bottom: 0;
   }
-  .text{
+  .slide__text{
     font-size: 1rem;
   }
-  .title{
+  .slide__card__title{
     font-size: 1.2rem;
   }
+  /* si se esta usando*/
   .carousel__icon{
     transform: scale(3)!important;
   }
