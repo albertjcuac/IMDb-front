@@ -13,11 +13,15 @@
           </template>
         </carousel>
 
-        <BaseGrid>
-          <transition-group name="fade" appear>
-            <MovieCard v-for="movie in movies " v-bind:movie="movie">  </MovieCard>
-          </transition-group>
-        </BaseGrid>
+  <BaseGrid>
+
+      <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie"></MovieCard>
+
+  </BaseGrid>
+
+
+
+
 
 
 </template>
@@ -84,14 +88,7 @@ export default {
 
     },
 
-    debouncedSearch(event) {
-      const self = this;
-      clearTimeout(self.searchTimeout);
 
-      self.searchTimeout = setTimeout(() => {
-        self.search(event); // Pasar el evento a la función search
-      }, 400);
-    },
 
 
 
@@ -101,7 +98,26 @@ export default {
   computed:{
       movies(){
         return this.$store.getters['movies/getMovies']
-      }
+      },
+    visibleMovies(){
+        return this.$store.getters['movies/getVisibleMovies']
+    },
+    savedMovies(){
+      return this.$store.getters['movies/getSavedMovies']
+    },
+    selectedGenre(){
+      return this.$store.getters['search/getSelectedGenre']
+    },
+    selectedDuration(){
+      return this.$store.getters['search/getSelectedDuration']
+    },
+    selectedLanguage(){
+      return this.$store.getters['search/getSelectedLanguage']
+    },
+    query(){
+      return this.$store.getters['search/getQuery']
+    }
+
   },
 
 

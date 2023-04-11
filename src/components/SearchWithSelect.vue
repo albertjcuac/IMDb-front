@@ -31,18 +31,42 @@ export default {
     return {
       searchValue: '',
       isOpen: false,
-      recentSearches: ["Taxi driver", "Amanece que no es poco", "Labyrinth"],
+      recentSearches: ["Taxi driver", "Amanece, que no es poco", "Labyrinth"],
     };
+  },
+  watch: {
+    query(){
+      this.debouncedSearch();
+
+    },
+    selectedFilter() {
+      this.debouncedSearch();
+    },
+
   },
   mounted() {
     document.addEventListener('click', this.handleClickOutside);
+
   },
   destroyed() {
     document.removeEventListener('click', this.handleClickOutside);
   },
   methods: {
+    search(){
+      this.$store.dispatch('movies/fetchQueryMovies')
+
+    },
+    debouncedSearch(event) {
+      const self = this;
+      clearTimeout(self.searchTimeout);
+
+      self.searchTimeout = setTimeout(() => {
+        self.search(event); // Pasar el evento a la función search
+      }, 400);
+    },
     handleSearch(event) {
       this.$store.commit('search/setQuery', event.target.value)
+
     },
     setResult(result) {
       this.searchValue = result;
@@ -57,7 +81,23 @@ export default {
         this.isOpen = false;
       }
     }
-  }
+  },
+  computed:{
+
+    selectedGenre(){
+      return this.$store.getters['search/getSelectedGenre']
+    },
+    selectedDuration(){
+      return this.$store.getters['search/getSelectedDuration']
+    },
+    selectedLanguage(){
+      return this.$store.getters['search/getSelectedLanguage']
+    },
+    query(){
+      return this.$store.getters['search/getQuery']
+    }
+
+  },
 }
 </script>
 

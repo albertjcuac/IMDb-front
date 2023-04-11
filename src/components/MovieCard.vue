@@ -1,24 +1,26 @@
 <template>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <article class="movie">
+  <article class="movie" :key="movie.id">
     <div class="movie__image-container">
 
       <img class="movie__image" v-bind:alt="'movie image of'+movie.name" v-bind:src="movie.image">
     </div>
     <div class="description">
-        <h1>{{ movie.name }}</h1>
-        <p>{{ movie.year }}, {{movie.director}}</p>
+        <h1>{{ movie.primaryTitle }}</h1>
+        <p>{{ movie.startYear }}, {{ movie.genres }}</p>
       <div class="misc">
         <div class="rating">
           <i class="fa fa-star" style="color: #fcff42;"></i>
-          <span>5.4</span>
+          <span>{{ movie.averageRating}}</span>
         </div>
       </div>
     </div>
     <div class="info" :class="{ 'show': showInfo }">
       <div class="info2">
-        <p>113min</p>
-        <button class="label" disabled="true">comedy</button>
+        <p>{{movie.runtimeMinutes}} min</p>
+        <div class ="genres">
+        <button class="label" v-for="genre in movie.genres" :key="genre" disabled>{{ genre }}</button>
+        </div>
       </div>
 
       <p>Ali G unwittingly becomes a pawn in the Chancellor's plot to overthrow the Prime Minister of Great Britain. However, Ali is embraced by the nation as a voice of the youth, making the PM and his government more popular than ever.</p>
@@ -33,7 +35,7 @@ export default {
   props: ["movie"],
   data() {
     return {
-
+     showInfo: false,
     }
   }
 }
@@ -45,8 +47,8 @@ export default {
   position: relative;
   display: flex;
   flex-flow: column;
-  width: 13rem;
-  height: 21rem;
+  width: 18rem;
+  height: 22rem;
   background-color:#202020;
   color:white;
   border-radius: 20px;
@@ -65,18 +67,20 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+
 
 
 
 }
 .description h1, .description p{
 
-  line-height: 0;
+
 
 }
 .description h1{
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
+  font-size: 100%;
+
 }
 
 .movie__image-container {
@@ -99,6 +103,7 @@ export default {
 
   background-color: #9a4ef1;
   color: white;
+  margin-left: 0.3rem;
 }
 
 .misc{
@@ -121,7 +126,7 @@ export default {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding: 1rem;
+
   box-sizing: border-box;
   transition: transform 0.5s ease;
   transform-style: preserve-3d;
@@ -133,8 +138,15 @@ export default {
 }
 .info2{
   display: flex;
-  justify-content: space-between;
-  width: 10rem;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.genres{
+  display: flex;
+
+
 }
 .rating {
   display: flex;
