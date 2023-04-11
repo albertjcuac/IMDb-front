@@ -4,8 +4,6 @@ export const moviesModule ={
         movies: [],
         visibleMovies:[],
         savedMovies:[],
-        currentPage : 1,
-        totalPages:0,
         url:'http://localhost:8080/search'
 
     }),
@@ -22,39 +20,33 @@ export const moviesModule ={
                 });
 
         },
-        async fetchQueryMovies({commit,state,rootGetters,}){
+        async fetchQueryMovies({ commit, state, rootGetters }) {
+            let url = "http://localhost:8080/search/terms";
+            let query = "?values=" + rootGetters['search/getQuery'].trim().toLowerCase();
+            let field = "&field=primaryTitle";
 
-            fetch("http://localhost:8080/search/terms?"+'values='+rootGetters['search/getQuery'].trim().toLowerCase()+'&field=primaryTitle' )
-                .then(response => response.json())
-                .then(data => {
-                    commit('setMovies',data);
-
+            fetch(url + query + field)
+                .then((data) => data.json())
+                .then((data) => {
+                    let promises = [];
+                    for (let film in data) {
+                        let imageUrl = 'https://www.omdbapi.com/?apikey=b3fb6cc1&t=' + data[film].primaryTitle;
+                        let promise = fetch(imageUrl)
+                            .then((result) => result.json())
+                            .then((result) => {
+                                data[film].imageUrl = result.Poster;
+                            });
+                        promises.push(promise);
+                    }
+                    Promise.all(promises).then(() => {
+                        commit('setMovies', data);
+                        console.log(data);
+                    });
                 });
-
-        },
-        async fetchFilteredMovies({commit,state,rootGetters,},url){
-
-            fetch(url + `&status=` + rootGetters['search/getSelectedFilter']+'&page='+state.currentPage)
-                .then(response => response.json())
-                .then(data => {
-                    commit('setTotalPages',data.info.pages);
-                    commit('setVisibleMovies',data.results);
-
-                });
-
-        },
-        decreasePage({commit,state}){
-            let page=state.currentPage-1;
-            commit('setCurrentPage',page)
-
-        },
-
-        increasePage({commit,state}){
-            let page=state.currentPage+1;
-            commit('setCurrentPage',page)
+        }
 
 
-        },
+
     },
     mutations:{
         setMovies(state, movies){

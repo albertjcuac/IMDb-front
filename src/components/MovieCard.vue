@@ -3,7 +3,7 @@
   <article class="movie" :key="movie.id">
     <div class="movie__image-container">
 
-      <img class="movie__image" v-bind:alt="'movie image of'+movie.name" v-bind:src="movie.image">
+      <img class="movie__image" v-bind:alt="'movie image of'+movie.name" v-bind:src="movie.imageUrl">
     </div>
     <div class="description">
         <h1>{{ movie.primaryTitle }}</h1>
