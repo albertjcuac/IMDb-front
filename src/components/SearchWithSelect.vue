@@ -123,7 +123,7 @@ export default {
   padding: 1em 1em;
   border: 0.1em solid #c7c7c7;
   align-self: center;
-
+  font-family: Futura;
 
 }
 
@@ -171,6 +171,7 @@ export default {
     padding: 1em 1em;
     border: 0.1em solid #c7c7c7;
     align-self: center;
+
 
   }
 

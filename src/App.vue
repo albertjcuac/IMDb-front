@@ -54,7 +54,7 @@ export default {
   grid-template-rows: auto 1fr auto 1fr auto;
   min-height: 100vh;
   background-color: black;
-
+  font-family: Futura;
 }
 
 

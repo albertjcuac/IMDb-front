@@ -48,7 +48,7 @@ export default {
   display: flex;
   flex-flow: column;
   width: 18rem;
-  height: 22rem;
+  height: 25rem;
   background-color:#202020;
   color:white;
   border-radius: 20px;

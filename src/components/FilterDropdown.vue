@@ -88,6 +88,7 @@ export default {
   margin-top: 1.4rem;
   height: 2.3rem;
   margin-bottom: 1.4rem;
+  font-family: Futura;
 }
 
 .filter-dropdown__filter {
@@ -112,6 +113,7 @@ export default {
 .filter-dropdown__filter-item-name {
   margin-right: 0.5rem;
   color: white;
+  font-size: 0.9rem;
 }
 
 .filter-dropdown__filter-item-select {
@@ -128,7 +130,7 @@ export default {
   color: #24292e;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: Futura;
   font-size: 12px;
   font-weight: 500;
   line-height: 20px;
