@@ -14,8 +14,8 @@
       </router-link>
 
 <div class="search-experience">
-  <filter-dropdown v-bind:categories="categories"></filter-dropdown>
-  <SearchWithSelect
+  <filter-dropdown v-if="showSearch" v-bind:categories="categories"></filter-dropdown>
+  <SearchWithSelect v-if="showSearch"
       :items="[
         'Taxi Driver',
         'Amanece Que No Es Poco',
@@ -65,6 +65,13 @@ export default {
           "options":["spanish","english","french","italian","german"]
 
         }]
+    }
+
+  },
+  computed:{
+    showSearch(){
+      return this.$store.getters['search/getShowSearch']
+
     }
 
   }

@@ -36,6 +36,25 @@ export default {
 
 
   },
+  methods:{
+
+    updateShowSearch() {
+      // Dependiendo de la ruta actual, ocultar o mostrar el buscador
+      if (this.$route.path === '/country' ||this.$route.path === '/similar'||this.$route.path === '/saved') {
+        this.$store.commit("search/setShowSearch",false);
+      } else {
+        this.$store.commit("search/setShowSearch",true);
+      }
+    }
+  },
+  mounted() {
+    this.updateShowSearch();
+  },
+  watch: {
+    $route() {
+      this.updateShowSearch();
+    }
+  }
 
 }
 

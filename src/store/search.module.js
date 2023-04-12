@@ -5,6 +5,7 @@ state:()=>({
     selectedDuration: 'all',
     selectedLanguage:'all',
     query:'',
+    showSearch:true
 
 
 
@@ -27,6 +28,9 @@ mutations:{
     setQuery(state, query){
         state.query = query
     },
+    setShowSearch(state, showSearch){
+        state.showSearch = showSearch
+    },
 
 
 },
@@ -43,6 +47,9 @@ getters:{
     },
     getQuery(state){
         return state.query
+    },
+    getShowSearch(state){
+        return state.showSearch
     },
 
 
