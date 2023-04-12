@@ -24,7 +24,7 @@
         'Clerks II'
       ]"
   />
-
+<div class="blank-space" v-if="showSearch===false">   asd</div>
 
 
 </div>
@@ -128,7 +128,12 @@ export default {
   align-self: center;
   margin-top: 1.4rem;
 }
-
+.blank-space{
+  padding: 1em 1em;
+  width: 25.2rem;
+  margin-top: 3rem;
+  height: 0.1rem;
+}
 
 @media only screen and (max-width: 767px) {
   .search-experience{
@@ -167,6 +172,7 @@ export default {
     top:2rem;
 
   }
+
 }
 
 </style>
