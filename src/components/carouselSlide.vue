@@ -30,7 +30,7 @@ export default {
 
 <style>
 a.slide__button{
-  background-color:#9a4ef1;
+  background-color:#F6E49A;
   display:inline-block;
   padding:0.3em 1.2em;
   margin:0 0.1em 0.1em 0;
@@ -39,13 +39,13 @@ a.slide__button{
   box-sizing: border-box;
   text-decoration:none;
   font-weight:300;
-  color:#FFFFFF;
+  color:black;
   text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
   text-align:center;
   transition: all 0.2s;
 }
 a.slide__button:hover{
-  color: rgba(0,0,0,1);
+  color: #ffffee;
 }
 
 .slide {

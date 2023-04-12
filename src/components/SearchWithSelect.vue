@@ -136,7 +136,7 @@ export default {
   height: auto;
   max-height: 8rem;
   overflow: auto;
-  background-color: #202020;
+  background-color: #0A0F00;
   z-index: 9999;
 
 
@@ -159,14 +159,17 @@ export default {
 }
 
 .autocomplete-result:hover {
-  background-color:#9a4ef1;
-  color: white;
+  background-color:#ffffee;
+  color: black;
 }
 @media only screen and (max-width: 767px) {
   .search {
     width: 14rem;
     height: 0.1rem;
-    border-radius: 30px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius:30px;
     font-size: 0.9rem;
     padding: 1em 1em;
     border: 0.1em solid #c7c7c7;

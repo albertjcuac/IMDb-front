@@ -72,7 +72,7 @@ export default {
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: auto 1fr auto 1fr auto;
   min-height: 100vh;
-  background-color: black;
+  background-color: #0A0F00;
   font-family: Futura;
 }
 
@@ -86,7 +86,7 @@ export default {
 
 
 .footer p{
-  color: #f8f8f8;
+  color: #ffffee;
 
 }
 
@@ -104,7 +104,6 @@ export default {
   grid-column: 1/6;
   grid-row: 5/6;
   justify-content: center;
-
   margin: 0;
 
 }

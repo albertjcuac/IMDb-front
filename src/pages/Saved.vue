@@ -27,7 +27,7 @@ h1{
 
 }
 .icon{
-  color: purple;
+  color: #F6E49A;
   font-size: 3rem;
   margin-left: 1rem;
   align-self: center;

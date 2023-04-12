@@ -80,8 +80,8 @@ export default {
 }
 
 .filter-dropdown__button {
-  background-color: #9a4ef1;
-  color: white;
+  background-color: #F6E49A;
+  color: black;
   padding: 8px 16px;
   border: none;
   cursor: pointer;
@@ -95,7 +95,7 @@ export default {
   position: absolute;
   top: 2.9rem;
   right: auto;
-  background-color: #202020;
+  background-color: #0A0F00;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
   z-index: 1;
@@ -122,12 +122,12 @@ export default {
 
 .filter-dropdown__clear-all-button {
   appearance: none;
-  background-color: #fafbfc;
+  background-color: #F6E4C6;
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
   box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
-  color: #24292e;
+  color: black;
   cursor: pointer;
   display: inline-block;
   font-family: Futura;
@@ -168,6 +168,11 @@ export default {
 .filter-dropdown__clear-all-button:focus {
   outline: 1px transparent;
 }
+@media only screen and (max-width: 767px) {
 
+  .filter-dropdown__button{
+  height: 2rem;
+  }
+}
 
 </style>

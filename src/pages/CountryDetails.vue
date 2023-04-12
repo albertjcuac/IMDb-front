@@ -32,7 +32,7 @@ export default {
 
 <style scoped>
 h1{
-  color:white;
+  color:#ffffee;
   text-align: center;
   align-self: center;
 }

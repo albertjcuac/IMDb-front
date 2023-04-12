@@ -63,8 +63,8 @@ export default {
 
 <style>
 .dropdown__btn {
-  background-color:#9a4ef1;
-  color: white;
+  background-color: #F6E49A;
+  color: black;
   padding: 1rem;
   font-size: 1rem;
   border: none;
@@ -72,9 +72,8 @@ export default {
   min-width: 8rem;
 }
 
-.dropdown__btn:hover,
-.dropdown__btn:focus {
-  background-color:#9932CC;
+.dropdown__btn:hover{
+  background-color:#ffffee;
 }
 
 .dropdown {
@@ -86,7 +85,7 @@ export default {
 .dropdown__content {
   display: none;
   position: absolute;
-  background-color: #f6f6f6;
+  background-color:#ffffee;
   overflow: auto;
   border: 1px solid #ddd;
   z-index: 1;
@@ -104,7 +103,7 @@ export default {
 }
 
 .dropdown__option:hover {
-  background-color: #ddd;
+  background-color:#F6E4C6;
 }
 
 .dropdown__search-input {
@@ -121,6 +120,10 @@ export default {
   margin-left: 0.5rem;
   width: 4rem;
   height: 3.2rem;
+  background-color:#F6E4C6;
+}
+.dropdown__similar-button:hover{
+  background-color:#ffffee;
 }
 @media only screen and (max-width: 767px) {
   .dropdown__search-input {

@@ -1,12 +1,12 @@
 <template>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <header class="header">
     <router-link to="/" tag="div" class="logo" style="text-decoration: none;">
 
-      <img class="logo__image" src="@/static/clapperboard-256.png">
+      <i class="fa fa-film logo__image" aria-hidden="true"> </i>
       <div class="logo__title">
-        <h4>IMDb</h4>
-        <h2>Movie Scope</h2>
+        <h4>hi</h4>
+        <h2>Moovie</h2>
       </div>
 
 
@@ -24,13 +24,13 @@
         'Clerks II'
       ]"
   />
-<div class="blank-space" v-if="showSearch===false">   asd</div>
+<div class="blank-space" v-if="showSearch===false">   </div>
 
 
 </div>
     <router-link to="/saved">
 
-    <img src="@/static/save-instagram.png" class="saved-movies" >
+      <i class="fa fa-bookmark icon"></i>
     </router-link>
   </header>
 </template>
@@ -96,6 +96,9 @@ export default {
 .logo__image {
   width: 2.5rem;
   height: 2.5rem;
+  color: #F6E4C6;
+
+  font-size: 2rem;
 
 }
 
@@ -105,13 +108,14 @@ export default {
   justify-content: center;
   align-items: center;
   margin-left: 0.5em;
+
 }
 .header {
   grid-column: 1/6;
   grid-row: 1/2;
   display: flex;
   justify-content: space-around;
-  background-color:	#202020;
+  background-color: #0A0F00;
   flex-wrap: wrap;
   width: 100vw;
   margin: 0px;
@@ -121,10 +125,19 @@ export default {
   margin: 0;
   text-align: center;
   line-height: 1.2em;
-  color:white ;
+
 }
-.saved-movies{
-  height: 2.2rem;
+.logo__title h2{
+  color: #f6e49a;
+}
+.logo__title h4{
+  color: #F6E4C6;
+}
+.icon{
+  color: #F6E49A;
+  font-size: 2.2rem;
+  margin-left: 1rem;
+  align-self: center;
   align-self: center;
   margin-top: 1.4rem;
 }
@@ -136,11 +149,13 @@ export default {
 }
 
 @media only screen and (max-width: 767px) {
-  .search-experience{
-    display: flex;
-    flex-direction: column-reverse;
-  }
 
+  .blank-space{
+    padding: 1em 1em;
+    width: 10rem;
+    margin-top: 3rem;
+    height: 0.1rem;
+  }
   .header {
     grid-column: 1/6;
     grid-row: 1/2;
@@ -165,11 +180,12 @@ export default {
     height: 2rem;
 
   }
-  .saved-movies{
+  .icon{
     position: fixed;
     height: 1.5rem;
-    right:2rem;
-    top:2rem;
+    right:3rem;
+    top:0rem;
+
 
   }
 

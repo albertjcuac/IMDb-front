@@ -73,7 +73,7 @@ export default {
 <style scoped>
 
 h1{
-  color:white;
+  color:#ffffee;
   text-align: center;
   align-self: center;
 }
@@ -98,7 +98,7 @@ h1{
 
   }
   h1{
-    color:white;
+
     text-align: center;
     align-self: center;
     font-size: 1rem;
