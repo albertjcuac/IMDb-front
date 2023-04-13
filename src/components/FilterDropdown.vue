@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     handleOutsideClick(event) {
-      if (!this.$refs.filter.contains(event.target)) {
+      if (this.showFilter===false||!this.$refs.filter.contains(event.target)) {
         this.showFilter = false;
       }
     },

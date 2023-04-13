@@ -4,9 +4,9 @@
       href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css"
   />
   <BaseGrid>
-    <transition-group name="fade" appear>
+
       <CountryCard v-for="country in countries " v-bind:country="country">  </CountryCard>
-    </transition-group>
+
   </BaseGrid>
 
 

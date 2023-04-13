@@ -4,10 +4,9 @@
     <router-link to="/" tag="div" class="logo" style="text-decoration: none;">
 
       <i class="fa fa-film logo__image" aria-hidden="true"> </i>
-      <div class="logo__title">
-        <h4>hi</h4>
-        <h2>Moovie</h2>
-      </div>
+
+        <img src="@/static/Screenshot 2023-04-13 at 09.20.47.png"  class="logo__title">
+
 
 
 
@@ -86,7 +85,7 @@ export default {
 .logo{
 
   display: flex;
-  margin-left: 2rem;
+  margin-left: 1rem;
   padding-bottom: 1rem;
   padding-top: 1rem;
   align-items: center;
@@ -95,19 +94,16 @@ export default {
 }
 .logo__image {
   width: 2.5rem;
-  height: 2.5rem;
+  height: 2rem;
   color: #F6E4C6;
-
   font-size: 2rem;
 
 }
 
 .logo__title {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-left: 0.5em;
+
+  width: 7rem;
+  height: 3rem;
 
 }
 .header {
@@ -121,18 +117,7 @@ export default {
   margin: 0px;
 
 }
-.logo__title h4, .logo__title h2 {
-  margin: 0;
-  text-align: center;
-  line-height: 1.2em;
 
-}
-.logo__title h2{
-  color: #f6e49a;
-}
-.logo__title h4{
-  color: #F6E4C6;
-}
 .icon{
   color: #F6E49A;
   font-size: 2.2rem;
@@ -170,16 +155,10 @@ export default {
 
     display: flex;
     margin-right: 3rem;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-    align-items: center;
     font-size: 0.7rem;
   }
-  .logo__image {
-    width: 2rem;
-    height: 2rem;
 
-  }
+
   .icon{
     position: fixed;
     height: 1.5rem;
