@@ -34,7 +34,23 @@ h1{
   margin-left: 1rem;
   align-self: center;
 }
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 
+.star {
+
+  animation: bounce 1s infinite;
+
+}
 @media only screen and (max-width: 767px) {
   .title {
     font-size: 0.8rem;

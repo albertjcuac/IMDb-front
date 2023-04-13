@@ -91,6 +91,11 @@ export default {
   font-family: Futura;
 }
 
+.filter-dropdown__button:hover {
+  color: #ffffee;
+  transition-duration: 0.2s;
+}
+
 .filter-dropdown__filter {
   position: absolute;
   top: 2.9rem;

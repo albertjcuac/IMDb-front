@@ -42,9 +42,22 @@ h1{
   justify-content: center;
 
 }
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .country__flag {
   font-size: 4rem;
   margin-left: 3rem;
+  animation: bounce 1s infinite;
 
 }
 p{

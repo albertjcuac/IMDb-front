@@ -46,6 +46,7 @@ a.slide__button{
 }
 a.slide__button:hover{
   color: #ffffee;
+  transition-duration: 0.2s;
 }
 
 .slide {
