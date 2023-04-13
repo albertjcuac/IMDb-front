@@ -102,8 +102,8 @@ export default {
 
 .logo__title {
 
-  width: 7rem;
-  height: 3rem;
+  width: 5.2rem;
+
 
 }
 .header {
