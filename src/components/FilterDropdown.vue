@@ -7,16 +7,27 @@
     <div v-show="showFilter" class="filter-dropdown__filter">
       <div v-for="(category, index) in categories" :key="index" class="filter-dropdown__filter-item">
         <span class="filter-dropdown__filter-item-name">{{ category.name }}</span>
-        <select class="filter-dropdown__filter-item-select" v-model="selectedValues[category.name]" @change="updateFilters(category.name, selectedValues[category.name])">
-          <option disabled value="">Please select one</option>
-          <option v-for="option in category.options" :key="option" :value="option">{{ option }}</option>
-        </select>
+        <template v-if="category.name === 'MinScore'">
+          <div class="range-container">
+
+            <input type="range" class="range-slider" min="1" max="10" v-model="selectedValues[category.name]" @change="updateFilters(category.name, selectedValues[category.name])">
+            <div class="range-value" v-show="selectedValues[category.name] !== 'all'">
+              {{ selectedValues[category.name] }}
+            </div>
+
+          </div>
+        </template>
+        <template v-else>
+          <select class="filter-dropdown__filter-item-select" v-model="selectedValues[category.name]" @change="updateFilters(category.name, selectedValues[category.name])">
+            <option disabled value="">Please select one</option>
+            <option v-for="option in category.options" :key="option" :value="option">{{ option }}</option>
+          </select>
+        </template>
       </div>
       <button class="filter-dropdown__clear-all-button" @click="clearAllFilters">Clear All</button>
     </div>
   </div>
 </template>
-
 <script>
 export default {
   props: {
@@ -61,8 +72,8 @@ export default {
         case 'Duration':
           this.$store.commit('search/setSelectedDuration', selectedValue);
           break;
-        case 'Language':
-          this.$store.commit('search/setSelectedLanguage', selectedValue);
+        case 'MinScore':
+          this.$store.commit('search/setSelectedMinScore', selectedValue);
           break;
       }
     }
@@ -173,6 +184,25 @@ export default {
 .filter-dropdown__clear-all-button:focus {
   outline: 1px transparent;
 }
+.range-container {
+  display: flex;
+  align-items: center;
+
+}
+
+.range-slider {
+  width: 100%;
+  height: 30px;
+  background-color: #f2f2f2;
+  margin: 10px 0;
+}
+
+.range-value {
+  color: white;
+  font-size: 1rem;
+}
+
+
 @media only screen and (max-width: 767px) {
 
   .filter-dropdown__button{

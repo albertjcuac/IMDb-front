@@ -49,7 +49,7 @@ export default {
     return{
       categories:[{
         "name":"Genre",
-        "options":["comedy","drama","action","fantasy"]
+        "options":["Comedy","Drama","Talk-show","Short","Documentary","Romance","News","Adventure"]
 
 
 
@@ -60,8 +60,8 @@ export default {
 
         },
         {
-          "name":"Language",
-          "options":["spanish","english","french","italian","german"]
+          "name":"MinScore",
+          "options":[5,6,7]
 
         }]
     }

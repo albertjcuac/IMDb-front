@@ -39,7 +39,13 @@ export default {
       this.debouncedSearch();
 
     },
-    selectedFilter() {
+    selectedDuration() {
+      this.debouncedSearch();
+    },
+    selectedGenre() {
+      this.debouncedSearch();
+    },
+    selectedMinScore() {
       this.debouncedSearch();
     },
 
@@ -90,8 +96,8 @@ export default {
     selectedDuration(){
       return this.$store.getters['search/getSelectedDuration']
     },
-    selectedLanguage(){
-      return this.$store.getters['search/getSelectedLanguage']
+    selectedMinScore(){
+      return this.$store.getters['search/getSelectedMinScore']
     },
     query(){
       return this.$store.getters['search/getQuery']

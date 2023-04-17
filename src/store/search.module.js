@@ -3,7 +3,7 @@ namespaced:true,
 state:()=>({
     selectedGenre: 'all',
     selectedDuration: 'all',
-    selectedLanguage:'all',
+    selectedMinScore:'all',
     query:'',
     showSearch:true
 
@@ -20,8 +20,8 @@ mutations:{
         state.selectedDuration=filter
 
     },
-    setSelectedLanguage(state, filter){
-        state.selectedLanguage=filter
+    setSelectedMinScore(state, filter){
+        state.selectedMinScore=filter
 
     },
 
@@ -42,8 +42,8 @@ getters:{
     getSelectedDuration(state){
         return state.selectedDuration
     },
-    getSelectedLanguage(state){
-        return state.selectedLanguage
+    getSelectedMinScore(state){
+        return state.selectedMinScore
     },
     getQuery(state){
         return state.query

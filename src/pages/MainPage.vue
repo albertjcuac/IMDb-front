@@ -79,6 +79,7 @@ export default {
 
   },
   mounted(){
+    this.$store.dispatch('movies/fetchAllMovies')
 
   },
   methods: {

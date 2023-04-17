@@ -10,22 +10,61 @@ export const moviesModule ={
 
 
     actions:{
-        async fetchAllMovies({commit}){
-
-            fetch("http://localhost:8080/search")
-                .then(response => response.json())
-                .then(data => {
-                    commit('setMovies',data.hits);
-
+        async fetchAllMovies({commit,rootGetters}){
+            let url="http://localhost:8080/search"
+            fetch( url)
+                .then((data) => data.json())
+                .then((data) => {
+                    let promises = [];
+                    for (let film in data) {
+                        let imageUrl = 'https://www.omdbapi.com/?apikey=b3fb6cc1&t=' + data[film].primaryTitle;
+                        let promise = fetch(imageUrl)
+                            .then((result) => result.json())
+                            .then((result) => {
+                                data[film].imageUrl = result.Poster;
+                            });
+                        promises.push(promise);
+                    }
+                    Promise.all(promises).then(() => {
+                        commit('setMovies', data);
+                        console.log(data);
+                    });
                 });
 
         },
         async fetchQueryMovies({ commit, state, rootGetters }) {
-            let url = "http://localhost:8080/search/terms";
-            let query = "?values=" + rootGetters['search/getQuery'].trim().toLowerCase();
-            let field = "&field=primaryTitle";
+            let url = "http://localhost:8080/search";
+            let query = "?title=" + rootGetters['search/getQuery'].trim().toLowerCase();
+            let duration =rootGetters['search/getSelectedDuration'];
+            let genre = rootGetters['search/getSelectedGenre'];
+            let minScore =  rootGetters['search/getSelectedMinScore'];
+            if(duration!=="all"){
+                switch(duration) {
+                    case "under 1h":
+                    query+="&maxMinutes="+60
+                        break;
+                    case "1h-2h":
+                        query+="&minMinutes="+60
+                        query+="&maxMinutes="+120
+                        break;
+                    case "over 2h":
+                        query+="&minMinutes="+120
+                        break;
 
-            fetch(url + query + field)
+                }
+
+
+
+            }
+            if(genre!=="all")  {
+                query+= "&genres="+genre
+
+            }
+            if(minScore!=="all"){
+                query+="&minScore="+minScore;
+            }
+
+            fetch(url + query)
                 .then((data) => data.json())
                 .then((data) => {
                     let promises = [];
