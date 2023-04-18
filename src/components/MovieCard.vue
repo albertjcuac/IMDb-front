@@ -7,7 +7,7 @@
     </div>
     <div class="description">
         <h1>{{ movie.primaryTitle }}</h1>
-        <p>{{ movie.startYear }}, {{ movie.genres }}</p>
+        <p>{{ movie.startYear }}, {{ movie.director }}</p>
       <div class="misc">
         <div class="rating">
           <i class="fa fa-star" style="color: #fcff42;"></i>
@@ -22,8 +22,11 @@
         <button class="label" v-for="genre in movie.genres" :key="genre" disabled>{{ genre }}</button>
         </div>
       </div>
+      <div class="info3">
+        <p> Writer: {{ movie.writer }}</p>
+        <p> Cast: {{ movie.actors }}</p>
+      </div>
 
-      <p>Ali G unwittingly becomes a pawn in the Chancellor's plot to overthrow the Prime Minister of Great Britain. However, Ali is embraced by the nation as a voice of the youth, making the PM and his government more popular than ever.</p>
 
     </div>
   </article>
@@ -141,6 +144,13 @@ export default {
   justify-content: space-around;
   align-items: center;
   width: 100%;
+}
+.info3{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
 }
 
 .genres{

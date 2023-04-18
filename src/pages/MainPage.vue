@@ -79,7 +79,7 @@ export default {
 
   },
   mounted(){
-    this.$store.dispatch('movies/fetchAllMovies')
+    this.$store.dispatch('movies/fetchQueryMovies')
 
   },
   methods: {

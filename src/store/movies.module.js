@@ -2,7 +2,6 @@ export const moviesModule ={
     namespaced:true,
     state: ()=> ({
         movies: [],
-        visibleMovies:[],
         savedMovies:[],
         url:'http://localhost:8080/search'
 
@@ -33,15 +32,23 @@ export const moviesModule ={
 
         },
         async fetchQueryMovies({ commit, state, rootGetters }) {
-            let url = "http://localhost:8080/search";
-            let query = "?title=" + rootGetters['search/getQuery'].trim().toLowerCase();
+
+           let query="http://localhost:8080/search"
+            if(rootGetters['search/getQuery']!==""){
+                 query += "?title=" + rootGetters['search/getQuery'].trim().toLowerCase();
+            }
+
+
             let duration =rootGetters['search/getSelectedDuration'];
             let genre = rootGetters['search/getSelectedGenre'];
             let minScore =  rootGetters['search/getSelectedMinScore'];
+        if(rootGetters['search/getQuery']!==""){
+
             if(duration!=="all"){
+
                 switch(duration) {
                     case "under 1h":
-                    query+="&maxMinutes="+60
+                        query+="&maxMinutes="+60
                         break;
                     case "1h-2h":
                         query+="&minMinutes="+60
@@ -53,9 +60,8 @@ export const moviesModule ={
 
                 }
 
-
-
             }
+
             if(genre!=="all")  {
                 query+= "&genres="+genre
 
@@ -63,8 +69,39 @@ export const moviesModule ={
             if(minScore!=="all"){
                 query+="&minScore="+minScore;
             }
+        }
+        else{
+            let hasFilter = false
+            if (duration !== "all") {
+                switch (duration) {
+                    case "under 1h":
+                        query += hasFilter ? "&maxMinutes=" + 60 : "?maxMinutes=" + 60; // Se verifica si hay un filtro previo
+                        hasFilter = true;
+                        break;
+                    case "1h-2h":
+                        query += hasFilter ? "&minMinutes=" + 60 + "&maxMinutes=" + 120 : "?minMinutes=" + 60 + "&maxMinutes=" + 120;
+                        hasFilter = true;
+                        break;
+                    case "over 2h":
+                        query += hasFilter ? "&minMinutes=" + 120 : "?minMinutes=" + 120;
+                        hasFilter = true;
+                        break;
+                }
+            }
 
-            fetch(url + query)
+            if (genre !== "all") {
+                query += hasFilter ? "&genres=" + genre : "?genres=" + genre;
+                hasFilter = true;
+            }
+
+            if (minScore !== "all") {
+                query += hasFilter ? "&minScore=" + minScore : "?minScore=" + minScore;
+            }
+
+
+        }
+
+            fetch(query)
                 .then((data) => data.json())
                 .then((data) => {
                     let promises = [];
@@ -74,6 +111,9 @@ export const moviesModule ={
                             .then((result) => result.json())
                             .then((result) => {
                                 data[film].imageUrl = result.Poster;
+                                data[film].director = result.Director;
+                                data[film].writer = result.Writer;
+                                data[film].actors = result.Actors;
                             });
                         promises.push(promise);
                     }
@@ -96,15 +136,7 @@ export const moviesModule ={
             state.savedMovies=Movies
 
         },
-        setVisibleMovies(state, visibleChar){
-            state.visibleMovies = visibleChar
-        },
-        setCurrentPage(state, currentPage){
-            state.currentPage = currentPage
-        },
-        setTotalPages(state, totalPages){
-            state.totalPages = totalPages
-        },
+
     },
 
     getters:{
@@ -114,16 +146,8 @@ export const moviesModule ={
         getSavedMovies(state){
             return state.savedMovies
         },
-        getVisibleMovies(state){
-            return state.visibleMovies
-        },
 
-        getCurrentPage(state){
-            return state.currentPage
-        },
-        getTotalPages(state){
-            return state.totalPages
-        }
+
     }
 
 
