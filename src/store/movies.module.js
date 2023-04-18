@@ -119,6 +119,7 @@ export const moviesModule ={
                                 data[film].director = result.Director;
                                 data[film].writer = result.Writer;
                                 data[film].actors = result.Actors;
+                                data[film].rated = result.Rated;
                             });
                         promises.push(promise);
                     }

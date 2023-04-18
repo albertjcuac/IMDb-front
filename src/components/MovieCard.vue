@@ -22,9 +22,11 @@
         <button class="label" v-for="genre in movie.genres" :key="genre" disabled>{{ genre }}</button>
         </div>
       </div>
+
       <div class="info3">
         <p> Writer: {{ movie.writer }}</p>
         <p> Cast: {{ movie.actors }}</p>
+        <p> Rated: {{ movie.rated }}</p>
       </div>
 
 
@@ -151,6 +153,9 @@ export default {
   justify-content: center;
   align-items: center;
   width: 90%;
+}
+.info3 p{
+  align-self: flex-start;
 }
 
 .genres{
