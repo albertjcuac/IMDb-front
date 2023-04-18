@@ -2,6 +2,7 @@ export const moviesModule ={
     namespaced:true,
     state: ()=> ({
         movies: [],
+        popularMovies:[],
         savedMovies:[],
         url:'http://localhost:8080/search'
 
@@ -9,8 +10,8 @@ export const moviesModule ={
 
 
     actions:{
-        async fetchAllMovies({commit,rootGetters}){
-            let url="http://localhost:8080/search"
+        async fetchPopularMovies({commit,rootGetters}){
+            let url="http://localhost:8080/search?sortBy=averageRating&sortOrder=desc&maxNHits=30"
             fetch( url)
                 .then((data) => data.json())
                 .then((data) => {
@@ -25,86 +26,199 @@ export const moviesModule ={
                         promises.push(promise);
                     }
                     Promise.all(promises).then(() => {
-                        commit('setMovies', data);
-                        console.log(data);
+                        commit('setPopularMovies', data);
+
                     });
                 });
 
         },
-        async fetchQueryMovies({ commit, state, rootGetters }) {
+        async fetchPopularMovies2({commit,rootGetters}){
+            let url="&sortBy=averageRating&sortOrder=desc&maxNHits=30"
 
-           let query="http://localhost:8080/search"
+            let query="http://localhost:8080/search"
+
             if(rootGetters['search/getQuery']!==""){
-                 query += "?title=" + rootGetters['search/getQuery'].trim().toLowerCase()+"&maxNHits=20";
+                query += "?title=" + rootGetters['search/getQuery'].trim().toLowerCase()+"&maxNHits=20";
             }
-
 
             let duration =rootGetters['search/getSelectedDuration'];
             let genre = rootGetters['search/getSelectedGenre'];
             let minScore =  rootGetters['search/getSelectedMinScore'];
-        if(rootGetters['search/getQuery']!==""){
+            if(rootGetters['search/getQuery']!==""){
 
-            if(duration!=="all"){
+                if(duration!=="all"){
 
-                switch(duration) {
-                    case "under 1h":
-                        query+="&maxMinutes="+60
-                        break;
-                    case "1h-2h":
-                        query+="&minMinutes="+60
-                        query+="&maxMinutes="+120
-                        break;
-                    case "over 2h":
-                        query+="&minMinutes="+120
-                        break;
+                    switch(duration) {
+                        case "under 1h":
+                            query+="&maxMinutes="+60
+                            break;
+                        case "1h-2h":
+                            query+="&minMinutes="+60
+                            query+="&maxMinutes="+120
+                            break;
+                        case "over 2h":
+                            query+="&minMinutes="+120
+                            break;
+
+                    }
 
                 }
 
-            }
+                if(genre!=="all")  {
+                    query+= "&genres="+genre
 
-            if(genre!=="all")  {
-                query+= "&genres="+genre
+                }
+                if(minScore!=="all"){
+                    query+="&minScore="+minScore;
+                }
+                query+="&sortBy=averageRating&sortOrder=desc&maxNHits=30"
+            }
+            else{
+                let hasFilter = false
+                if (duration !== "all") {
+                    switch (duration) {
+                        case "under 1h":
+                            query += hasFilter ? "&maxMinutes=" + 60 : "?maxMinutes=" + 60; // Se verifica si hay un filtro previo
+                            hasFilter = true;
+                            break;
+                        case "1h-2h":
+                            query += hasFilter ? "&minMinutes=" + 60 + "&maxMinutes=" + 120 : "?minMinutes=" + 60 + "&maxMinutes=" + 120;
+                            hasFilter = true;
+                            break;
+                        case "over 2h":
+                            query += hasFilter ? "&minMinutes=" + 120 : "?minMinutes=" + 120;
+                            hasFilter = true;
+                            break;
+                    }
+                }
 
-            }
-            if(minScore!=="all"){
-                query+="&minScore="+minScore;
-            }
-        }
-        else{
-            let hasFilter = false
-            if (duration !== "all") {
-                switch (duration) {
-                    case "under 1h":
-                        query += hasFilter ? "&maxMinutes=" + 60 : "?maxMinutes=" + 60; // Se verifica si hay un filtro previo
-                        hasFilter = true;
-                        break;
-                    case "1h-2h":
-                        query += hasFilter ? "&minMinutes=" + 60 + "&maxMinutes=" + 120 : "?minMinutes=" + 60 + "&maxMinutes=" + 120;
-                        hasFilter = true;
-                        break;
-                    case "over 2h":
-                        query += hasFilter ? "&minMinutes=" + 120 : "?minMinutes=" + 120;
-                        hasFilter = true;
-                        break;
+                if (genre !== "all") {
+                    query += hasFilter ? "&genres=" + genre : "?genres=" + genre;
+                    hasFilter = true;
+                }
+
+                if (minScore !== "all") {
+                    query += hasFilter ? "&minScore=" + minScore : "?minScore=" + minScore;
+                    hasFilter = true;
+                }
+                if(hasFilter===true){
+                    query += "&maxNHits=20";
+                    hasFilter = true;
+                }else {
+
+                    query += "?maxNHits=20";
+                    hasFilter = true;
+                }
+                if(hasFilter===true){
+                    query+="&sortBy=averageRating&sortOrder=desc&maxNHits=30"
+                }else{
+                    query+="?sortBy=averageRating&sortOrder=desc&maxNHits=30"
                 }
             }
 
-            if (genre !== "all") {
-                query += hasFilter ? "&genres=" + genre : "?genres=" + genre;
-                hasFilter = true;
-            }
+            fetch(query)
+                .then((data) => data.json())
+                .then((data) => {
+                    let promises = [];
+                    for (let film in data) {
+                        let imageUrl = 'https://www.omdbapi.com/?apikey=b3fb6cc1&t=' + data[film].primaryTitle;
+                        let promise = fetch(imageUrl)
+                            .then((result) => result.json())
+                            .then((result) => {
+                                data[film].imageUrl = result.Poster;
+                                data[film].director = result.Director;
+                                data[film].writer = result.Writer;
+                                data[film].actors = result.Actors;
+                                data[film].rated = result.Rated;
+                            });
+                        promises.push(promise);
+                    }
+                    Promise.all(promises).then(() => {
+                        commit('setPopularMovies', data);
 
-            if (minScore !== "all") {
-                query += hasFilter ? "&minScore=" + minScore : "?minScore=" + minScore;
-            }
-            if(hasFilter===true){
-                query += "&maxNHits=20";
-            }else {
+                    });
+                });
 
-                query += "?maxNHits=20";
-            }
 
-        }
+        },
+        async fetchQueryMovies({ commit, state, rootGetters,rootState }) {
+
+           let query="http://localhost:8080/search"
+
+                    if(rootGetters['search/getQuery']!==""){
+                        query += "?title=" + rootGetters['search/getQuery'].trim().toLowerCase()+"&maxNHits=20";
+                    }
+
+
+                    let duration =rootGetters['search/getSelectedDuration'];
+                    let genre = rootGetters['search/getSelectedGenre'];
+                    let minScore =  rootGetters['search/getSelectedMinScore'];
+                    if(rootGetters['search/getQuery']!==""){
+
+                        if(duration!=="all"){
+
+                            switch(duration) {
+                                case "under 1h":
+                                    query+="&maxMinutes="+60
+                                    break;
+                                case "1h-2h":
+                                    query+="&minMinutes="+60
+                                    query+="&maxMinutes="+120
+                                    break;
+                                case "over 2h":
+                                    query+="&minMinutes="+120
+                                    break;
+
+                            }
+
+                        }
+
+                        if(genre!=="all")  {
+                            query+= "&genres="+genre
+
+                        }
+                        if(minScore!=="all"){
+                            query+="&minScore="+minScore;
+                        }
+                    }
+                    else{
+                        let hasFilter = false
+                        if (duration !== "all") {
+                            switch (duration) {
+                                case "under 1h":
+                                    query += hasFilter ? "&maxMinutes=" + 60 : "?maxMinutes=" + 60; // Se verifica si hay un filtro previo
+                                    hasFilter = true;
+                                    break;
+                                case "1h-2h":
+                                    query += hasFilter ? "&minMinutes=" + 60 + "&maxMinutes=" + 120 : "?minMinutes=" + 60 + "&maxMinutes=" + 120;
+                                    hasFilter = true;
+                                    break;
+                                case "over 2h":
+                                    query += hasFilter ? "&minMinutes=" + 120 : "?minMinutes=" + 120;
+                                    hasFilter = true;
+                                    break;
+                            }
+                        }
+
+                        if (genre !== "all") {
+                            query += hasFilter ? "&genres=" + genre : "?genres=" + genre;
+                            hasFilter = true;
+                        }
+
+                        if (minScore !== "all") {
+                            query += hasFilter ? "&minScore=" + minScore : "?minScore=" + minScore;
+                            hasFilter = true;
+                        }
+                        if(hasFilter===true){
+                            query += "&maxNHits=20";
+                        }else {
+
+                            query += "?maxNHits=20";
+                        }
+
+                    }
+
+
 
             fetch(query)
                 .then((data) => data.json())
@@ -125,7 +239,7 @@ export const moviesModule ={
                     }
                     Promise.all(promises).then(() => {
                         commit('setMovies', data);
-                        console.log(data);
+
                     });
                 });
         }
@@ -142,6 +256,10 @@ export const moviesModule ={
             state.savedMovies=Movies
 
         },
+        setPopularMovies(state, movies){
+            state.popularMovies=movies
+
+        },
 
     },
 
@@ -153,7 +271,9 @@ export const moviesModule ={
             return state.savedMovies
         },
 
-
+        getPopularMovies(state){
+            return state.popularMovies
+        },
     }
 
 

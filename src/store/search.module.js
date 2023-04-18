@@ -5,7 +5,8 @@ state:()=>({
     selectedDuration: 'all',
     selectedMinScore:'all',
     query:'',
-    showSearch:true
+    showSearch:true,
+    currentRoute:""
 
 
 
@@ -31,6 +32,9 @@ mutations:{
     setShowSearch(state, showSearch){
         state.showSearch = showSearch
     },
+    setCurrentRoute(state, route){
+        state.currentRoute=route
+    }
 
 
 },
@@ -51,6 +55,9 @@ getters:{
     getShowSearch(state){
         return state.showSearch
     },
+    getCurrentRoute(state){
+        return state.currentRoute
+    }
 
 
 },

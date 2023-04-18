@@ -25,6 +25,7 @@
 </template>
 
 <script>
+
 export default {
   name: "SearchWithSelect",
   data() {
@@ -36,7 +37,10 @@ export default {
   },
   watch: {
     query(){
+
+
       this.debouncedSearch();
+
 
     },
     selectedDuration() {
@@ -59,7 +63,15 @@ export default {
   },
   methods: {
     search(){
-      this.$store.dispatch('movies/fetchQueryMovies')
+      let route= this.$store.getters['search/getCurrentRoute']
+      if(route==='/most-rated'){
+        this.$store.dispatch('movies/fetchPopularMovies2')
+      }
+      else{
+        this.$store.dispatch('movies/fetchQueryMovies')
+      }
+
+
 
     },
     debouncedSearch(event) {
@@ -67,6 +79,7 @@ export default {
       clearTimeout(self.searchTimeout);
 
       self.searchTimeout = setTimeout(() => {
+
         self.search(event); // Pasar el evento a la función search
       }, 400);
     },

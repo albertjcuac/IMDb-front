@@ -6,13 +6,36 @@
     <h1> Most rated movies</h1>
     <i class="fa fa-star star"></i>
 
-
   </div>
+
+  <BaseGrid>
+
+    <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie"></MovieCard>
+
+  </BaseGrid>
 </template>
 
 <script>
+import MovieCard from "@/components/MovieCard.vue";
+import BaseGrid from "@/components/BaseGrid.vue";
+
 export default {
-  name: "MostRated"
+  name: "MostRated",
+  components: {
+
+    MovieCard,
+    BaseGrid
+
+
+  },
+  mounted(){
+    this.$store.dispatch('movies/fetchPopularMovies',this.$route.path)
+  },
+  computed: {
+    movies() {
+      return this.$store.getters['movies/getPopularMovies']
+    },
+  }
 }
 </script>
 

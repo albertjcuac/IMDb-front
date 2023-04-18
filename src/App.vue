@@ -37,7 +37,9 @@ export default {
 
   },
   methods:{
-
+    updateCurrentRoute(){
+      this.$store.commit("search/setCurrentRoute",this.$route.path);
+    },
     updateShowSearch() {
       // Dependiendo de la ruta actual, ocultar o mostrar el buscador
       if (this.$route.path === '/country' ||this.$route.path === '/similar'||this.$route.path === '/saved') {
@@ -49,10 +51,12 @@ export default {
   },
   mounted() {
     this.updateShowSearch();
+    this.updateCurrentRoute();
   },
   watch: {
     $route() {
       this.updateShowSearch();
+      this.updateCurrentRoute();
     }
   }
 
