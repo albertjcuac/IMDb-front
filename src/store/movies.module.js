@@ -35,7 +35,7 @@ export const moviesModule ={
 
            let query="http://localhost:8080/search"
             if(rootGetters['search/getQuery']!==""){
-                 query += "?title=" + rootGetters['search/getQuery'].trim().toLowerCase();
+                 query += "?title=" + rootGetters['search/getQuery'].trim().toLowerCase()+"&maxNHits=20";
             }
 
 
@@ -97,7 +97,12 @@ export const moviesModule ={
             if (minScore !== "all") {
                 query += hasFilter ? "&minScore=" + minScore : "?minScore=" + minScore;
             }
+            if(hasFilter===true){
+                query += "&maxNHits=20";
+            }else {
 
+                query += "?maxNHits=20";
+            }
 
         }
 
