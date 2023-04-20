@@ -48,7 +48,7 @@ export const moviesModule ={
                 if(minScore!=="all"){
                     query+="&minScore="+minScore;
                 }
-                query+="&sortBy=averageRating&sortOrder=desc&maxNHits=30"
+                query+="&region="+region+"&maxNHits=30"
             }
             else{
                 let hasFilter = false
@@ -107,8 +107,13 @@ export const moviesModule ={
                                 data[film].writer = result.Writer;
                                 data[film].actors = result.Actors;
                                 data[film].rated = result.Rated;
+                                const akaRegion =  data[film].akas.find(aka => aka.region === rootGetters['search/getRegion']);
+                                data[film].primaryTitle = akaRegion.title;
+
                             });
                         promises.push(promise);
+
+
                     }
                     Promise.all(promises).then(() => {
                         commit('setMovies', data);
