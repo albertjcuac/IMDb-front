@@ -32,14 +32,14 @@ export default {
     return {
       searchValue: '',
       isOpen: false,
-      recentSearches: ["Taxi driver", "Amanece, que no es poco", "Labyrinth"],
+
     };
   },
   watch: {
-    query(){
-
+    query(event){
 
       this.debouncedSearch();
+
 
 
     },
@@ -62,6 +62,7 @@ export default {
     document.removeEventListener('click', this.handleClickOutside);
   },
   methods: {
+
     search() {
       let route = this.$store.getters['search/getCurrentRoute']
       if (route === '/most-rated') {
@@ -95,7 +96,9 @@ export default {
       this.isOpen = false;
     },
     onChange() {
+      this.$store.dispatch('search/fetchRecentSearches')
       this.isOpen = true;
+
     },
     handleClickOutside(event) {
       if (!this.$el.contains(event.target)) {
@@ -104,7 +107,9 @@ export default {
     }
   },
   computed:{
-
+    recentSearches(){
+      return this.$store.getters['search/getRecentSearches']
+    },
     selectedGenre(){
       return this.$store.getters['search/getSelectedGenre']
     },

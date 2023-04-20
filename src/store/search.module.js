@@ -8,15 +8,32 @@ state:()=>({
     showSearch:true,
     currentRoute:"",
     region:"",
-    regionName:""
+    regionName:"",
+    recentSearches:[]
 
 
 
 
 }),
+actions:{
+    async fetchRecentSearches({commit,rootGetters}){
+
+        fetch("http://localhost:8080/search/recent")
+            .then((data) => data.json())
+            .then((data) => {
+                commit('setRecentSearches', data);
+
+                            });
+    }
+
+},
 mutations:{
     setRegion(state, region){
         state.region=region
+
+    },
+    setRecentSearches(state, query){
+        state.recentSearches=query
 
     },
     setRegionName(state, region){
@@ -51,7 +68,9 @@ mutations:{
 },
 
 getters:{
-
+    getRecentSearches(state){
+        return state.recentSearches
+    },
     getRegion(state){
         return state.region
     },
@@ -76,6 +95,7 @@ getters:{
     getCurrentRoute(state){
         return state.currentRoute
     }
+
 
 
 },
