@@ -29,7 +29,7 @@ export default {
 
   },
   mounted(){
-    this.$store.dispatch('movies/fetchPopularMovies',this.$route.path)
+    this.$store.dispatch('movies/fetchPopularMovies')
   },
   computed: {
     movies() {

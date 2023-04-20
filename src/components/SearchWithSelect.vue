@@ -62,10 +62,12 @@ export default {
     document.removeEventListener('click', this.handleClickOutside);
   },
   methods: {
-    search(){
-      let route= this.$store.getters['search/getCurrentRoute']
-      if(route==='/most-rated'){
+    search() {
+      let route = this.$store.getters['search/getCurrentRoute']
+      if (route === '/most-rated') {
         this.$store.dispatch('movies/fetchPopularMovies2')
+      } else if( route === '/country/'+this.region+'/'+this.regionName){
+        this.$store.dispatch('movies/fetchByCountry',this.region)
       }
       else{
         this.$store.dispatch('movies/fetchQueryMovies')
@@ -109,8 +111,11 @@ export default {
     selectedDuration(){
       return this.$store.getters['search/getSelectedDuration']
     },
-    selectedMinScore(){
-      return this.$store.getters['search/getSelectedMinScore']
+    region(){
+      return this.$store.getters['search/getRegion']
+    },
+    regionName(){
+      return this.$store.getters['search/getRegionName']
     },
     query(){
       return this.$store.getters['search/getQuery']

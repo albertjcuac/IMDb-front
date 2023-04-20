@@ -6,12 +6,23 @@ state:()=>({
     selectedMinScore:'all',
     query:'',
     showSearch:true,
-    currentRoute:""
+    currentRoute:"",
+    region:"",
+    regionName:""
+
 
 
 
 }),
 mutations:{
+    setRegion(state, region){
+        state.region=region
+
+    },
+    setRegionName(state, region){
+        state.regionName=region
+
+    },
 
     setSelectedGenre(state, filter){
         state.selectedGenre=filter
@@ -40,6 +51,13 @@ mutations:{
 },
 
 getters:{
+
+    getRegion(state){
+        return state.region
+    },
+    getRegionName(state){
+        return state.regionName
+    },
     getSelectedGenre(state){
         return state.selectedGenre
     },

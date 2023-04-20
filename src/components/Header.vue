@@ -49,7 +49,7 @@ export default {
     return{
       categories:[{
         "name":"Genre",
-        "options":["Comedy","Drama","Talk-show","Short","Documentary","Romance","News","Adventure"]
+        "options":["Comedy","Drama","Crime","Sci-Fi","Documentary","Romance","News","Adventure","History"]
 
 
 

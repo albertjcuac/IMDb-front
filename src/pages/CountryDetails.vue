@@ -10,23 +10,52 @@
 
   </div>
 
+
+  <BaseGrid>
+
+    <MovieCard v-for="movie in movies" :key="movie.id" :movie="movie"></MovieCard>
+
+  </BaseGrid>
+
+
 </template>
 
 <script>
 
 
+
+import MovieCard from "@/components/MovieCard.vue";
+import BaseGrid from "@/components/BaseGrid.vue";
+
 export default {
   name: "CountryDetails",
+  components: {
 
-  data(){
-    return{
-      countryName: this.$route.params.name ,
-      countryIso: this.$route.params.iso ,
+    MovieCard,
+    BaseGrid
+
+
+  },
+  data() {
+    return {
+      countryName: this.$route.params.name,
+      countryIso: this.$route.params.iso,
 
 
     }
-  }
+  },
+  mounted() {
+    this.$store.commit('search/setRegion', this.countryIso);
 
+    this.$store.commit('search/setRegionName', this.countryName);
+    this.$store.dispatch('movies/fetchByCountry', this.countryIso)
+
+  },
+  computed: {
+    movies() {
+      return this.$store.getters['movies/getMovies']
+    },
+  }
 }
 </script>
 
