@@ -56,6 +56,7 @@ export default {
     this.$store.dispatch('search/fetchRegions')
 
   },
+
   watch: {
     $route() {
       this.updateShowSearch();

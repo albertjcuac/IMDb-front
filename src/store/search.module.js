@@ -30,7 +30,8 @@ actions:{
         fetch("http://localhost:8080/search/regions")
             .then((data) => data.json())
             .then((data) => {
-                let regions=data.values.map((item) => item.value)
+                const excludedValues = ["\\N", "XWW", "XWG", "SUHH", "XYU", "CSHH", "DDDE", "XEU"];
+                const regions = data.values.filter(item => !excludedValues.includes(item.value));
                 commit('setRegions', regions);
 
             });
