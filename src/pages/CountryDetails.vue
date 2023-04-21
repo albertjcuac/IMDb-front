@@ -5,7 +5,7 @@
   />
   <div class="title">
 
-    <h1> Showing movies from {{countryName}}</h1>
+    <h1> Showing movies from {{countryIso}}</h1>
     <span v-bind:class="'fi fi-'+countryIso.toLowerCase()+' flag country__flag'" ></span>
 
   </div>
@@ -38,22 +38,23 @@ export default {
   },
   data() {
     return {
-      countryName: this.$route.params.name,
       countryIso: this.$route.params.iso,
 
 
     }
   },
   mounted() {
+    this.$store.dispatch('movies/deleteCountryMovies')
     this.$store.commit('search/setRegion', this.countryIso);
-
-    this.$store.commit('search/setRegionName', this.countryName);
     this.$store.dispatch('movies/fetchByCountry', this.countryIso)
 
   },
+
+
+
   computed: {
     movies() {
-      return this.$store.getters['movies/getMovies']
+      return this.$store.getters['movies/getRegionMovies']
     },
   }
 }

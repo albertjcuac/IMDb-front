@@ -8,15 +8,15 @@ state:()=>({
     showSearch:true,
     currentRoute:"",
     region:"",
-    regionName:"",
-    recentSearches:[]
+    recentSearches:[],
+    regions:[],
 
 
 
 
 }),
 actions:{
-    async fetchRecentSearches({commit,rootGetters}){
+    async fetchRecentSearches({commit}){
 
         fetch("http://localhost:8080/search/recent")
             .then((data) => data.json())
@@ -24,6 +24,16 @@ actions:{
                 commit('setRecentSearches', data);
 
                             });
+    },
+    async fetchRegions({commit}){
+
+        fetch("http://localhost:8080/search/regions")
+            .then((data) => data.json())
+            .then((data) => {
+                let regions=data.values.map((item) => item.value)
+                commit('setRegions', regions);
+
+            });
     }
 
 },
@@ -32,14 +42,15 @@ mutations:{
         state.region=region
 
     },
+    setRegions(state, regions){
+        state.regions=regions
+
+    },
     setRecentSearches(state, query){
         state.recentSearches=query
 
     },
-    setRegionName(state, region){
-        state.regionName=region
 
-    },
 
     setSelectedGenre(state, filter){
         state.selectedGenre=filter
@@ -74,9 +85,10 @@ getters:{
     getRegion(state){
         return state.region
     },
-    getRegionName(state){
-        return state.regionName
+    getRegions(state){
+        return state.regions
     },
+
     getSelectedGenre(state){
         return state.selectedGenre
     },

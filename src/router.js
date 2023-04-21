@@ -23,7 +23,7 @@ const routes = [
         path: '/similar',
         component: similar
     },
-    {   path: '/country/:iso/:name',
+    {   path: '/country/:iso',
         component: CountryDetails
     },
     {

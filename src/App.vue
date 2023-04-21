@@ -37,6 +37,7 @@ export default {
 
   },
   methods:{
+
     updateCurrentRoute(){
       this.$store.commit("search/setCurrentRoute",this.$route.path);
     },
@@ -52,13 +53,17 @@ export default {
   mounted() {
     this.updateShowSearch();
     this.updateCurrentRoute();
+    this.$store.dispatch('search/fetchRegions')
+
   },
   watch: {
     $route() {
       this.updateShowSearch();
       this.updateCurrentRoute();
     }
-  }
+  },
+
+
 
 }
 

@@ -7,14 +7,14 @@
 
 
 
-    <router-link v-bind:to="'/country/'+country.iso.toUpperCase()+'/'+country.name" tag="div" class="country__image-container" >
+    <router-link v-bind:to="'/country/'+country" tag="div" class="country__image-container" >
 
-        <span v-bind:class="'fi fi-'+country.iso+'  flag country__flag'" ></span>
+        <span v-bind:class="'fi fi-'+country.toLowerCase()+'  flag country__flag'" ></span>
 
     </router-link>
     <div class="country__description">
-      <h1>{{ country.name }}</h1>
-      <p>{{ country.number }} movies</p>
+      <h1>{{ country }}</h1>
+      <p>2000  movies</p>
     </div>
 
   </article>

@@ -3,6 +3,7 @@ export const moviesModule ={
     state: ()=> ({
         movies: [],
         popularMovies:[],
+        regionMovies:[],
         savedMovies:[],
         url:'http://localhost:8080/search'
 
@@ -10,6 +11,10 @@ export const moviesModule ={
 
 
     actions:{
+        deleteCountryMovies({commit}){
+
+            commit('setRegionMovies', []);
+        },
         async fetchByCountry({commit,rootGetters},region){
 
             let query="http://localhost:8080/search"
@@ -116,7 +121,7 @@ export const moviesModule ={
 
                     }
                     Promise.all(promises).then(() => {
-                        commit('setMovies', data);
+                        commit('setRegionMovies', data);
 
                     });
                 });
@@ -369,6 +374,10 @@ export const moviesModule ={
             state.savedMovies=Movies
 
         },
+        setRegionMovies(state, Movies){
+            state.regionMovies=Movies
+
+        },
         setPopularMovies(state, movies){
             state.popularMovies=movies
 
@@ -382,6 +391,9 @@ export const moviesModule ={
         },
         getSavedMovies(state){
             return state.savedMovies
+        },
+        getRegionMovies(state){
+            return state.regionMovies
         },
 
         getPopularMovies(state){

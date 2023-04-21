@@ -67,7 +67,7 @@ export default {
       let route = this.$store.getters['search/getCurrentRoute']
       if (route === '/most-rated') {
         this.$store.dispatch('movies/fetchPopularMovies2')
-      } else if( route === '/country/'+this.region+'/'+this.regionName){
+      } else if( route === '/country/'+this.region){
         this.$store.dispatch('movies/fetchByCountry',this.region)
       }
       else{
