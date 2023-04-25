@@ -8,3 +8,4 @@ Develop the front-end for the last project of the first half of the academy prog
 ![Filters](src/static/filters.png)
 
 ![Search](src/static/search.png)
+![countries](src/static/countries.png)
