@@ -5,4 +5,6 @@ Develop the front-end for the last project of the first half of the academy prog
 [José Pérez](https://github.com/josperrod9) - [IMDB Project](https://github.com/josperrod9/IMDb-project)
  
 ## Some screenshots:
-![My Image](src/static/filters.png)
+![Filters](src/static/filters.png)
+
+![Search](src/static/search.png)
