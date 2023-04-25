@@ -18,7 +18,7 @@ Develop the front-end for the last project of the first half of the academy prog
 - Feature Carousel for Quick Navigation Between Different Features. :white_check_mark:
 - Films Country Map: Displays all regions along with the number of movies in each region, and clicking on one of them shows all the movies from that region. :white_check_mark:
 - Most rated. :white_check_mark:
--Infinite scroll. :white_check_mark:
+- Infinite scroll. :white_check_mark:
 - Movie card with more details on hover. :white_check_mark:
 - Save Films. :arrows_counterclockwise:
 - Similar Films: Choose one of your saved movies and you will be shown a list of similar films. :arrows_counterclockwise:
