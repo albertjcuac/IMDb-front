@@ -20,6 +20,6 @@ Develop the front-end for the last project of the first half of the academy prog
 - Most rated. :white_check_mark:
 -Infinite scroll. :white_check_mark:
 - Movie card with more details on hover. :white_check_mark:
-- Save Films. &#x1F504; o :arrows_counterclockwise:
-- Similar Films: Choose one of your saved movies and you will be shown a list of similar films. &#x1F504; o :arrows_counterclockwise:
+- Save Films. :arrows_counterclockwise:
+- Similar Films: Choose one of your saved movies and you will be shown a list of similar films. :arrows_counterclockwise:
 
