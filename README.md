@@ -11,14 +11,15 @@ Develop the front-end for the last project of the first half of the academy prog
 ![countries](src/static/countries.png)
 
 ## Features:
-- Search movies by title.:white_check_mark:
+- Search movies by title. :white_check_mark:
 
-- Recent searches displayed in search input
-- Multiple search filters with clear option.
-- Feature Carousel for Quick Navigation Between Different Features
-- Films Country Map: Displays all regions along with the number of movies in each region, and clicking on one of them shows all the movies from that region.
-- Most rated
--Infinite scroll
-- Movie card with more details on hover
-- Save Films
-- Similar Films: Choose one of your saved movies and you will be shown a list of similar films.
+- Recent searches displayed in search input. :white_check_mark:
+- Multiple search filters with clear option. :white_check_mark:
+- Feature Carousel for Quick Navigation Between Different Features. :white_check_mark:
+- Films Country Map: Displays all regions along with the number of movies in each region, and clicking on one of them shows all the movies from that region. :white_check_mark:
+- Most rated. :white_check_mark:
+-Infinite scroll. :white_check_mark:
+- Movie card with more details on hover. :white_check_mark:
+- Save Films. &#x1F504; o :arrows_counterclockwise:
+- Similar Films: Choose one of your saved movies and you will be shown a list of similar films. &#x1F504; o :arrows_counterclockwise:
+
