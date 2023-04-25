@@ -3,9 +3,9 @@
   <header class="header">
     <router-link to="/" tag="div" class="logo" style="text-decoration: none;">
 
-      <i class="fa fa-film logo__image" aria-hidden="true"> </i>
 
-        <img src="@/static/Screenshot 2023-04-13 at 09.20.47.png"  class="logo__title">
+
+        <img src="@/static/Screenshot 2023-04-25 at 14.33.41.png"  class="logo__image">
 
 
 
@@ -93,10 +93,8 @@ export default {
 
 }
 .logo__image {
-  width: 2.5rem;
-  height: 2rem;
-  color: #F6E4C6;
-  font-size: 2rem;
+  width: 7rem;
+
 
 }
 .logo:hover {
@@ -114,7 +112,7 @@ export default {
 
 .logo__title {
 
-  width: 5.2rem;
+  width: 9rem;
 
 
 }

@@ -14,7 +14,7 @@
     </router-link>
     <div class="country__description">
       <h1>{{ country.value }}</h1>
-      <p>{{ country.count }}</p>
+      <p>{{ country.count }} movies</p>
     </div>
 
   </article>
