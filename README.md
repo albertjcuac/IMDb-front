@@ -11,7 +11,7 @@ Develop the front-end for the last project of the first half of the academy prog
 ![countries](src/static/countries.png)
 
 ## Features:
-- Search movies by title. &#x2705; o :white_check_mark:
+- Search movies by title.:white_check_mark:
 
 - Recent searches displayed in search input
 - Multiple search filters with clear option.
