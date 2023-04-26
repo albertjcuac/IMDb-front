@@ -16,8 +16,8 @@ Develop the front-end for the last project of the first half of the academy prog
 - Recent searches displayed in search input. :white_check_mark:
 - Multiple search filters with clear option. :white_check_mark:
 - Feature Carousel for Quick Navigation Between Different Features. :white_check_mark:
-- Films Country Map: Displays all regions along with the number of movies in each region, and clicking on one of them shows all the movies from that region. :white_check_mark:
-- Most rated. :white_check_mark:
+- Films Country Map Feature: Displays all regions along with the number of movies in each region, and clicking on one of them shows all the movies from that region. :white_check_mark:
+- Most rated Feature. :white_check_mark:
 - Infinite scroll. :white_check_mark:
 - Movie card with more details on hover. :white_check_mark:
 - Save Films. :arrows_counterclockwise:
