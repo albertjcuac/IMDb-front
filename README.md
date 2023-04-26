@@ -21,5 +21,5 @@ Develop the front-end for the last project of the first half of the academy prog
 - Infinite scroll. :white_check_mark:
 - Movie card with more details on hover. :white_check_mark:
 - Save Films. :arrows_counterclockwise:
-- Similar Films: Choose one of your saved movies and you will be shown a list of similar films. :arrows_counterclockwise:
+- Similar Films Feature: Choose one of your saved movies and you will be shown a list of similar films. :arrows_counterclockwise:
 
